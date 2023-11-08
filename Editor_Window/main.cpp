@@ -5,6 +5,12 @@
 #include "framework.h"
 #include "Editor_Window.h"
 
+#include "..\\JBEngine_SOURCE\\JBApplication.h"
+
+//#pragma comment (lib, "..\\x64\\Debug\\JBEngine_Window.lib")
+
+Application app;
+
 #define MAX_LOADSTRING 100
 
 // 전역 변수:
@@ -26,6 +32,10 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     UNREFERENCED_PARAMETER(hPrevInstance);
     UNREFERENCED_PARAMETER(lpCmdLine);
 
+    // 깃허브 테스트
+
+    app.test();
+
     // TODO: 여기에 코드를 입력합니다.
 
     // 전역 문자열을 초기화합니다.
@@ -43,13 +53,23 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
     MSG msg;
 
-    // 기본 메시지 루프입니다:
-    while (GetMessage(&msg, nullptr, 0, 0))
+    while (true)
     {
-        if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
+        if (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE))
         {
-            TranslateMessage(&msg);
-            DispatchMessage(&msg);
+            if (msg.message == WM_QUIT)
+                break;
+
+            if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
+            {
+                TranslateMessage(&msg);
+                DispatchMessage(&msg);
+            }
+        }
+        else
+        {
+            // 메세지가 없을 경우 여기서 처리
+            // 게임 로직이 들어가면 된다.
         }
     }
 
@@ -153,9 +173,24 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 
             Rectangle(hdc, 100, 100, 200, 200);
 
-            (HBRUSH)SelectObject(hdc, oldBrush);
+            SelectObject(hdc, oldBrush);
+
+            DeleteObject(brush);
+
+            HPEN redPen = CreatePen(PS_SOLID, 2, RGB(255, 0, 0));
+            HPEN oldPen = (HPEN)SelectObject(hdc, redPen);
 
             Ellipse(hdc, 300, 300, 400, 400);
+
+            SelectObject(hdc, oldPen);
+            DeleteObject(redPen);
+
+            HBRUSH grayBrush = (HBRUSH)GetStockObject(GRAY_BRUSH);
+            oldBrush = (HBRUSH)SelectObject(hdc, grayBrush);
+
+            Rectangle(hdc, 100, 300, 200, 400);
+
+            SelectObject(hdc, oldBrush);
 
             EndPaint(hWnd, &ps);
         }
