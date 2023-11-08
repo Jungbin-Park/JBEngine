@@ -1,7 +1,6 @@
 ﻿// Editor_Window.cpp : 애플리케이션에 대한 진입점을 정의합니다.
 //
 
-#include "pch.h"
 #include "framework.h"
 #include "Editor_Window.h"
 
@@ -9,7 +8,7 @@
 
 //#pragma comment (lib, "..\\x64\\Debug\\JBEngine_Window.lib")
 
-Application app;
+JB::Application application;
 
 #define MAX_LOADSTRING 100
 
@@ -34,7 +33,6 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
     // 깃허브 테스트
 
-    app.test();
 
     // TODO: 여기에 코드를 입력합니다.
 
@@ -70,6 +68,8 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
         {
             // 메세지가 없을 경우 여기서 처리
             // 게임 로직이 들어가면 된다.
+
+            application.Run();
         }
     }
 
@@ -121,6 +121,8 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
       CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInstance, nullptr);
 
+   application.Initialize(hWnd);
+
    if (!hWnd)
    {
       return FALSE;
@@ -168,30 +170,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             PAINTSTRUCT ps;
             HDC hdc = BeginPaint(hWnd, &ps);
             
-            HBRUSH brush = CreateSolidBrush(RGB(0, 0, 255));
-            HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, brush);
-
-            Rectangle(hdc, 100, 100, 200, 200);
-
-            SelectObject(hdc, oldBrush);
-
-            DeleteObject(brush);
-
-            HPEN redPen = CreatePen(PS_SOLID, 2, RGB(255, 0, 0));
-            HPEN oldPen = (HPEN)SelectObject(hdc, redPen);
-
-            Ellipse(hdc, 300, 300, 400, 400);
-
-            SelectObject(hdc, oldPen);
-            DeleteObject(redPen);
-
-            HBRUSH grayBrush = (HBRUSH)GetStockObject(GRAY_BRUSH);
-            oldBrush = (HBRUSH)SelectObject(hdc, grayBrush);
-
-            Rectangle(hdc, 100, 300, 200, 400);
-
-            SelectObject(hdc, oldBrush);
-
+            
             EndPaint(hWnd, &ps);
         }
         break;

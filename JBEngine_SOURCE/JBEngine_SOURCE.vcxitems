@@ -14,9 +14,14 @@
     <ProjectCapability Include="SourceItemsFromImports" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JBApplication.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JBEllipseObject.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JBGameObject.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)JBApplication.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JBEllipseObject.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JBGameObject.cpp" />
   </ItemGroup>
 </Project>
