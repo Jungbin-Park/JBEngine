@@ -21,6 +21,7 @@ namespace JB
 
 		mPlayer.SetPosition(0, 0);
 		mEllipse.SetPosition(100, 100);
+		mMonster.SetPosition(500, 50);
 	}
 
 	void Application::Run()
@@ -34,6 +35,7 @@ namespace JB
 	{
 		mPlayer.Update();
 		mEllipse.Update();
+		mMonster.Update();
 	}
 
 	void Application::LateUpdate()
@@ -45,6 +47,7 @@ namespace JB
 	{
 		mPlayer.Render(mHdc);
 		mEllipse.Render(mHdc);
+		mMonster.Render(mHdc);
 	}
 }
 
