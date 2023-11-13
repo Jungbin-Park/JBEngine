@@ -1,5 +1,6 @@
 #include "JBApplication.h"
-
+#include "JBInput.h"
+#include "JBTime.h"
 
 
 namespace JB
@@ -19,9 +20,12 @@ namespace JB
 		mHwnd = hwnd;
 		mHdc = GetDC(hwnd);
 
+		Input::Initialize();
+		Time::Initialize();
+
 		mPlayer.SetPosition(0, 0);
-		mEllipse.SetPosition(100, 100);
-		mMonster.SetPosition(500, 50);
+		//mEllipse.SetPosition(100, 100);
+		//mMonster.SetPosition(500, 50);
 	}
 
 	void Application::Run()
@@ -33,9 +37,12 @@ namespace JB
 
 	void Application::Update()
 	{
+		Input::Update();
+		Time::Update();
+
 		mPlayer.Update();
-		mEllipse.Update();
-		mMonster.Update();
+		//mEllipse.Update();
+		//mMonster.Update();
 	}
 
 	void Application::LateUpdate()
@@ -45,9 +52,19 @@ namespace JB
 
 	void Application::Render()
 	{
+		clearRenderTarget();
+
+		Time::Render(mHdc);
 		mPlayer.Render(mHdc);
-		mEllipse.Render(mHdc);
-		mMonster.Render(mHdc);
+	}
+	void Application::clearRenderTarget()
+	{
+		// cleear
+		Rectangle(mHdc, -1, -1, 1601, 901);
+	}
+	void Application::copyRenderTarget(HDC source, HDC dest)
+	{
+
 	}
 }
 

@@ -2,9 +2,7 @@
 
 namespace JB
 {
-	float dir = 0.05f;
-	int pathSum = 0;
-	int path = 1;
+	
 
 	JBMonster::JBMonster()
 	{
@@ -16,23 +14,24 @@ namespace JB
 	}
 	void JBMonster::Update()
 	{
-		// 수정 필요
-		pathSum += path;
-		if (pathSum >= 300)
-		{
-			path *= -1;
-			mY += dir;
-		}
-		else if (pathSum < 0)
-		{
-			path += -1;
-			mX += dir;
-		}
-		else
-		{
-			path += -1;
-			mX += dir;
-		}
+		static float dir = 0.05f;
+		static int pathSum = 0;
+		static int path = 1;
+
+		//// 수정 필요
+		//pathSum += path;
+		//if (pathSum == 120)
+		//{
+		//	path *= -1;
+		//	mY += dir;
+		//}
+		//else if (pathSum == 0)
+		//{
+		//	path *= -1;
+		//	mX += dir;
+		//}
+
+		mX += 1;
 
 		if (mX < 0 || mX > 1200)
 			dir *= -1;

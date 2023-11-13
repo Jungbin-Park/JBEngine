@@ -1,4 +1,6 @@
 #include "JBGameObject.h"
+#include "JBInput.h"
+#include "JBTime.h"
 
 
 namespace JB
@@ -11,21 +13,25 @@ namespace JB
 	}
 	void GameObject::Update()
 	{
-		if (GetAsyncKeyState(VK_LEFT) & 0x8000)
+		const int speed = 100.0f;
+		if (Input::GetKey(eKeyCode::A))
 		{
-			mX -= 0.01f;
+			mX -= speed * Time::DeltaTime();
 		}
-		if (GetAsyncKeyState(VK_RIGHT) & 0x8000)
+
+		if (Input::GetKey(eKeyCode::D))
 		{
-			mX += 0.01f;
+			mX += speed * Time::DeltaTime();
 		}
-		if (GetAsyncKeyState(VK_UP) & 0x8000)
+
+		if (Input::GetKey(eKeyCode::W))
 		{
-			mY -= 0.01f;
+			mY -= speed * Time::DeltaTime();
 		}
-		if (GetAsyncKeyState(VK_DOWN) & 0x8000)
+
+		if (Input::GetKey(eKeyCode::S))
 		{
-			mY += 0.01f;
+			mY += speed * Time::DeltaTime();
 		}
 	}
 	void GameObject::LateUpdate()

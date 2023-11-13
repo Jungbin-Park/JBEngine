@@ -18,8 +18,17 @@ namespace JB
 		void Render();
 
 	private:
+		void clearRenderTarget();
+		void copyRenderTarget(HDC source, HDC dest);
+		void adjustWindowRect();
+
+
+	private:
 		HWND mHwnd;
 		HDC mHdc;
+
+		UINT mWidth;
+		UINT mHeight;
 
 		GameObject mPlayer;
 		EllipseObject mEllipse;
