@@ -5,6 +5,7 @@
 #include "Editor_Window.h"
 
 #include "..\\JBEngine_SOURCE\\JBApplication.h"
+#include "..\\JBEngine_Window\\JBLoadScene.h"
 
 //#pragma comment (lib, "..\\x64\\Debug\\JBEngine_Window.lib")
 
@@ -133,6 +134,8 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
    ShowWindow(hWnd, nCmdShow);
    UpdateWindow(hWnd);
+
+   JB::LoadScenes();
 
    return TRUE;
 }

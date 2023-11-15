@@ -1,6 +1,7 @@
 #include "JBApplication.h"
 #include "JBInput.h"
 #include "JBTime.h"
+#include "JBSceneManager.h"
 
 
 namespace JB
@@ -26,7 +27,7 @@ namespace JB
 		createBuffer(width, height);
 		initializeEtc();
 
-		mPlayer.SetPosition(0, 0);
+		SceneManager::Initialize();
 	}
 
 	void Application::Run()
@@ -41,7 +42,7 @@ namespace JB
 		Input::Update();
 		Time::Update();
 
-		mPlayer.Update();
+		SceneManager::Update();
 	}
 
 	void Application::LateUpdate()
@@ -54,7 +55,8 @@ namespace JB
 		clearRenderTarget();
 
 		Time::Render(mBackHdc);
-		mPlayer.Render(mBackHdc);
+
+		SceneManager::Render(mBackHdc);
 
 		copyRenderTarget(mBackHdc, mHdc);
 	}

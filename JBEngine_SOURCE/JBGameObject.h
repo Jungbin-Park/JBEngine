@@ -1,6 +1,6 @@
 #pragma once
 #include "CommonInclude.h"
-
+#include "JBComponent.h"
 
 namespace JB
 {
@@ -10,6 +10,7 @@ namespace JB
 		GameObject();
 		~GameObject();
 
+		void Initialize();
 		void Update();
 		void LateUpdate();
 		void Render(HDC hdc);
@@ -25,8 +26,7 @@ namespace JB
 
 
 	private:
-		//float mSpeed;
-		float mX;
-		float mY;
+		std::vector<Component*> mComponents;
+
 	};
 }
