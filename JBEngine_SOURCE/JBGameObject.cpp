@@ -6,6 +6,7 @@
 namespace JB
 {
 	GameObject::GameObject()
+		: mX(0), mY(0)
 	{
 	}
 	GameObject::~GameObject()
