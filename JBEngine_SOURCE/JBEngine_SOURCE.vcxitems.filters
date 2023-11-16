@@ -34,6 +34,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)JBMath.cpp">
       <Filter>Common</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)JBResource.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)JBComponent.h">
@@ -72,6 +73,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)JBMath.h">
       <Filter>Common</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)JBResource.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Component">

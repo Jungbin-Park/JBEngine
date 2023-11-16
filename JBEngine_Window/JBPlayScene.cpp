@@ -15,31 +15,21 @@ namespace JB
 
 	void PlayScene::Initialize()
 	{
-		/*for (size_t i = 0; i < 100; i++)
-		{
-			GameObject* obj = new GameObject();
-			obj->SetPosition(rand() % 1600, rand() % 900);
-			AddGameObject(obj);
-		}*/
-		Player* p1 = new Player();
-		Transform* tr = p1->AddComponent<Transform>();
-		tr->SetPos(Vector2(800, 450));
+		Player* bg = new Player();
+		Transform* tr = bg->AddComponent<Transform>();
+		tr->SetPos(Vector2(0, 0));
 		tr->SetName(L"TR");
 
-		SpriteRenderer* sr = p1->AddComponent<SpriteRenderer>();
+		SpriteRenderer* sr = bg->AddComponent<SpriteRenderer>();
 		sr->SetName(L"SR");
+		sr->ImageLoad(L"C:\\C++\\JBEngine\\Resources\\CloudOcean.png");
 
-		AddGameObject(p1);
+		AddGameObject(bg);
 	}
 
 	void PlayScene::Update()
 	{
-		// 부모의 함수를 호출(풀네임으로)
 		Scene::Update();
-		/*for (GameObject* gameObj : mGameObjects)
-		{
-			gameObj->Update();
-		}*/
 	}
 
 	void PlayScene::LateUpdate()

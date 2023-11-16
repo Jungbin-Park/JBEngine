@@ -1,5 +1,5 @@
 #pragma once
-#include "JBGameObject.h"
+#include "..\\JBEngine_SOURCE\\JBGameObject.h"
 
 namespace JB
 {

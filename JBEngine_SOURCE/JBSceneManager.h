@@ -1,6 +1,5 @@
 #pragma once
 #include "JBScene.h"
-#include "JBGameObject.h"
 
 namespace JB
 {
@@ -27,6 +26,7 @@ namespace JB
 				return nullptr;
 
 			mActiveScene = iter->second;
+
 			return iter->second;
 		}
 

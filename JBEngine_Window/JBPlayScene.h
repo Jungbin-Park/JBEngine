@@ -1,5 +1,5 @@
 #pragma once
-#include "JBScene.h"
+#include "..\\JBEngine_SOURCE\JBScene.h"
 
 namespace JB
 {

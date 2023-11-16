@@ -1,7 +1,5 @@
 #pragma once
 #include "JBGameObject.h"
-#include "JBEllipseObject.h"
-#include "JBMonster.h"
 
 namespace JB
 {
