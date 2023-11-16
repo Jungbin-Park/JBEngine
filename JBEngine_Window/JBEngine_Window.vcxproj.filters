@@ -4,14 +4,21 @@
     <Filter Include="Scenes">
       <UniqueIdentifier>{52f1f78f-c9e3-452c-85ec-194e2a98e71a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Contents">
+      <UniqueIdentifier>{70cd9cd6-c312-4cbc-ac34-0aed22c54b9d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="JBLoadScene.h">
       <Filter>Scenes</Filter>
     </ClInclude>
-    <ClInclude Include="JBPlayScene.h" />
+    <ClInclude Include="JBPlayScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="JBPlayScene.cpp" />
+    <ClCompile Include="JBPlayScene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

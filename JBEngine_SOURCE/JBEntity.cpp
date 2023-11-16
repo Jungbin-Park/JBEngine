@@ -6,6 +6,7 @@ namespace JB
 		: mName(L"")
 	{
 	}
+
 	Entity::~Entity()
 	{
 	}

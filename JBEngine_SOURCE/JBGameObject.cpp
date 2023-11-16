@@ -12,6 +12,9 @@ namespace JB
 	GameObject::~GameObject()
 	{
 	}
+	void GameObject::Initialize()
+	{
+	}
 	void GameObject::Update()
 	{
 		const int speed = 100.0f;
