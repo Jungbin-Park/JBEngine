@@ -135,6 +135,8 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    ShowWindow(hWnd, nCmdShow);
    UpdateWindow(hWnd);
 
+   Gdiplus::GdiplusStartup(&gpToken, &gpsi, NULL);
+
    JB::LoadScenes();
 
    return TRUE;

@@ -133,9 +133,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="JBLoadScene.h" />
+    <ClInclude Include="JBPlayer.h" />
     <ClInclude Include="JBPlayScene.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="JBPlayer.cpp" />
     <ClCompile Include="JBPlayScene.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
