@@ -27,33 +27,7 @@ namespace JB
 		createBuffer(width, height);
 		initializeEtc();
 
-		RECT rect = {0, 0, width, height};
-
-		AdjustWindowRect(&rect, WS_OVERLAPPEDWINDOW, false);
-
-		mWidth = rect.right - rect.left;
-		mHeight = rect.bottom - rect.top;
-
-		SetWindowPos(mHwnd, nullptr, 0, 0, mWidth, mHeight, 0);
-		ShowWindow(mHwnd, true);
-
-		// 윈도우 해상도에 맞는 백버퍼(도화지) 생성
-		mBackBitmap = CreateCompatibleBitmap(mHdc, width, height);
-
-		// 새로 생성한 백버퍼를 가리킬 DC생성
-		mBackHdc = CreateCompatibleDC(mHdc);
-
-		HBITMAP oldBitmap = (HBITMAP)SelectObject(mBackHdc, mBackBitmap);
-		DeleteObject(oldBitmap);
-
-		mPlayer.SetPosition(0, 0);
-
-		Input::Initialize();
-		Time::Initialize();
-
-		
-		//mEllipse.SetPosition(100, 100);
-		//mMonster.SetPosition(500, 50);
+		SceneManager::Initialize();
 	}
 
 	void Application::Run()
