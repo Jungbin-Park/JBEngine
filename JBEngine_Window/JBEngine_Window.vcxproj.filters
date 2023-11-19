@@ -18,6 +18,12 @@
     <ClInclude Include="JBPlayer.h">
       <Filter>Contents</Filter>
     </ClInclude>
+    <ClInclude Include="JBFarmhouseScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="JBTitleScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="JBPlayScene.cpp">
@@ -25,6 +31,12 @@
     </ClCompile>
     <ClCompile Include="JBPlayer.cpp">
       <Filter>Contents</Filter>
+    </ClCompile>
+    <ClCompile Include="JBFarmhouseScene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="JBTitleScene.cpp">
+      <Filter>Scenes</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

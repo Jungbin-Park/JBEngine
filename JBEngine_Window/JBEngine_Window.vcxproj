@@ -132,13 +132,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="JBFarmhouseScene.h" />
     <ClInclude Include="JBLoadScene.h" />
     <ClInclude Include="JBPlayer.h" />
     <ClInclude Include="JBPlayScene.h" />
+    <ClInclude Include="JBTitleScene.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="JBFarmhouseScene.cpp" />
     <ClCompile Include="JBPlayer.cpp" />
     <ClCompile Include="JBPlayScene.cpp" />
+    <ClCompile Include="JBTitleScene.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

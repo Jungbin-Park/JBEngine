@@ -1,4 +1,4 @@
-#include "JBPlayScene.h"
+#include "JBFarmhouseScene.h"
 #include "JBGameObject.h"
 #include "JBPlayer.h"
 #include "JBTransform.h"
@@ -6,14 +6,14 @@
 
 namespace JB
 {
-	PlayScene::PlayScene()
+	FarmhouseScene::FarmhouseScene()
 	{
 	}
-	PlayScene::~PlayScene()
+	FarmhouseScene::~FarmhouseScene()
 	{
 	}
 
-	void PlayScene::Initialize()
+	void FarmhouseScene::Initialize()
 	{
 		Player* bg = new Player();
 		Transform* tr = bg->AddComponent<Transform>();
@@ -22,22 +22,22 @@ namespace JB
 
 		SpriteRenderer* sr = bg->AddComponent<SpriteRenderer>();
 		sr->SetName(L"SR");
-		sr->ImageLoad(L"C:\\C++\\JBEngine\\Resources\\PelicanTown.png");
+		sr->ImageLoad(L"C:\\C++\\JBEngine\\Resources\\Farmhouse.png");
 
 		AddGameObject(bg);
 	}
 
-	void PlayScene::Update()
+	void FarmhouseScene::Update()
 	{
 		Scene::Update();
 	}
 
-	void PlayScene::LateUpdate()
+	void FarmhouseScene::LateUpdate()
 	{
 		Scene::LateUpdate();
 	}
 
-	void PlayScene::Render(HDC hdc)
+	void FarmhouseScene::Render(HDC hdc)
 	{
 		Scene::Render(hdc);
 	}

@@ -1,4 +1,4 @@
-#include "JBPlayScene.h"
+#include "JBTitleScene.h"
 #include "JBGameObject.h"
 #include "JBPlayer.h"
 #include "JBTransform.h"
@@ -6,14 +6,14 @@
 
 namespace JB
 {
-	PlayScene::PlayScene()
+	TitleScene::TitleScene()
 	{
 	}
-	PlayScene::~PlayScene()
+	TitleScene::~TitleScene()
 	{
 	}
 
-	void PlayScene::Initialize()
+	void TitleScene::Initialize()
 	{
 		Player* bg = new Player();
 		Transform* tr = bg->AddComponent<Transform>();
@@ -22,22 +22,22 @@ namespace JB
 
 		SpriteRenderer* sr = bg->AddComponent<SpriteRenderer>();
 		sr->SetName(L"SR");
-		sr->ImageLoad(L"C:\\C++\\JBEngine\\Resources\\PelicanTown.png");
+		sr->ImageLoad(L"C:\\C++\\JBEngine\\Resources\\CloudOcean.png");
 
 		AddGameObject(bg);
 	}
 
-	void PlayScene::Update()
+	void TitleScene::Update()
 	{
 		Scene::Update();
 	}
 
-	void PlayScene::LateUpdate()
+	void TitleScene::LateUpdate()
 	{
 		Scene::LateUpdate();
 	}
 
-	void PlayScene::Render(HDC hdc)
+	void TitleScene::Render(HDC hdc)
 	{
 		Scene::Render(hdc);
 	}
