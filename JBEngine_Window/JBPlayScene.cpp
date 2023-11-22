@@ -7,6 +7,8 @@
 #include "JBTitleScene.h"
 #include "JBSceneManager.h"
 #include "JBObject.h"
+#include "JBTexture.h"
+#include "JBResources.h"
 
 namespace JB
 {
@@ -19,9 +21,10 @@ namespace JB
 
 	void PlayScene::Initialize()
 	{
-		bg = object::Instantiate<Player>(enums::eLayerType::BackGround, Vector2(100.0f, 100.0f));
+		bg = object::Instantiate<Player>(enums::eLayerType::BackGround /*Vector2(100.0f, 100.0f)*/);
 		SpriteRenderer* sr = bg->AddComponent<SpriteRenderer>();
-		sr->ImageLoad(L"C:\\C++\\JBEngine\\Resources\\PelicanTown.png");
+		graphics::Texture* bg = Resources::Find<graphics::Texture>(L"BG");
+		sr->SetTexture(bg);
 
 		//  게임 오브젝트 생성 후에 레이어와 게임 오브젝트들의 init함수를 호출
 		Scene::Initialize();

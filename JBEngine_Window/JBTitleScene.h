@@ -19,6 +19,7 @@ namespace JB
 
 	private:
 		class Player* bg;
+		class Player* logo;
 	};
 }
 

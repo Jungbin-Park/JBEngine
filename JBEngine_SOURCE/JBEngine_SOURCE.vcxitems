@@ -25,11 +25,14 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)JBMath.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JBObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JBResource.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JBResources.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JBScene.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JBSceneManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JBSpriteRenderer.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JBTexture.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JBTime.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JBTransform.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)LoadResources.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)JBApplication.cpp" />
@@ -40,9 +43,11 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)JBLayer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JBMath.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JBResource.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JBResources.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JBScene.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JBSceneManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JBSpriteRenderer.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JBTexture.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JBTime.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JBTransform.cpp" />
   </ItemGroup>

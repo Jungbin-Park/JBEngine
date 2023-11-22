@@ -5,6 +5,7 @@
 #include "Editor_Window.h"
 
 #include "..\\JBEngine_SOURCE\\JBApplication.h"
+#include "..\\JBEngine_SOURCE\\LoadResources.h"
 #include "..\\JBEngine_Window\\JBLoadScene.h"
 
 //#pragma comment (lib, "..\\x64\\Debug\\JBEngine_Window.lib")
@@ -142,6 +143,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
    Gdiplus::GdiplusStartup(&gpToken, &gpsi, NULL);
 
+   JB::LoadResources();
    JB::LoadScenes();
 
    return TRUE;

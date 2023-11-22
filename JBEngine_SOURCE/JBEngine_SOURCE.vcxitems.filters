@@ -34,9 +34,17 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)JBMath.cpp">
       <Filter>Common</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)JBResource.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JBLayer.cpp">
       <Filter>Layer</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)JBResource.cpp">
+      <Filter>Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)JBResources.cpp">
+      <Filter>Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)JBTexture.cpp">
+      <Filter>Resource\Texture</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -76,7 +84,6 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)JBMath.h">
       <Filter>Common</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)JBResource.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JBLayer.h">
       <Filter>Layer</Filter>
     </ClInclude>
@@ -84,6 +91,18 @@
       <Filter>Common</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)JBObject.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JBResource.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)JBResources.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)JBTexture.h">
+      <Filter>Resource\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)LoadResources.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Component">
@@ -106,6 +125,12 @@
     </Filter>
     <Filter Include="Layer">
       <UniqueIdentifier>{4ecb7146-ca32-4565-b15a-02d77aa4b560}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource">
+      <UniqueIdentifier>{63f39f59-cb18-457a-90bf-6bb1f62e6c6b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource\Texture">
+      <UniqueIdentifier>{76c1a8f1-b57d-46a0-a1cd-9b5fa1fd0162}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
