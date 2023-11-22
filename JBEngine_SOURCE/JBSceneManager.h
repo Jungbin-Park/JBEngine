@@ -19,6 +19,10 @@ namespace JB
 		}
 		static Scene* LoadScene(const std::wstring& name)
 		{
+			//  나올 때 OnExit() 호출
+			if (mActiveScene)
+				mActiveScene->OnExit();
+
 			std::map<std::wstring, Scene*>::iterator iter
 				= mScene.find(name);
 
@@ -26,6 +30,8 @@ namespace JB
 				return nullptr;
 
 			mActiveScene = iter->second;
+			// 들어가고 OnEnter호출
+			mActiveScene->OnEnter();
 
 			return iter->second;
 		}

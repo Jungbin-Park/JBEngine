@@ -8,13 +8,13 @@ namespace JB
 {
 	void LoadScenes()
 	{
-		SceneManager::CreateScene<PlayScene>(L"PlayScene");
-		//SceneManager::CreateScene<EndScene>(L"EndScene");
 		SceneManager::CreateScene<TitleScene>(L"TitleScene");
+		SceneManager::CreateScene<PlayScene>(L"PlayScene");
 		SceneManager::CreateScene<FarmhouseScene>(L"FarmhouseScene");
+		//SceneManager::CreateScene<EndScene>(L"EndScene");
 
 		//SceneManager::LoadScene(L"PlayScene");
-		//SceneManager::LoadScene(L"TitleScene");
-		SceneManager::LoadScene(L"FarmhouseScene");
+		SceneManager::LoadScene(L"TitleScene");
+		//SceneManager::LoadScene(L"FarmhouseScene");
 	}
 }

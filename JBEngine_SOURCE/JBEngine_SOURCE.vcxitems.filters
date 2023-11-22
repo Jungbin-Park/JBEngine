@@ -35,6 +35,9 @@
       <Filter>Common</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)JBResource.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JBLayer.cpp">
+      <Filter>Layer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)JBComponent.h">
@@ -74,6 +77,12 @@
       <Filter>Common</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)JBResource.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JBLayer.h">
+      <Filter>Layer</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)JBEnums.h">
+      <Filter>Common</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Component">
@@ -93,6 +102,9 @@
     </Filter>
     <Filter Include="High Level Interface">
       <UniqueIdentifier>{a63142a5-d617-4762-b68d-dde2b80ce1f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Layer">
+      <UniqueIdentifier>{4ecb7146-ca32-4565-b15a-02d77aa4b560}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

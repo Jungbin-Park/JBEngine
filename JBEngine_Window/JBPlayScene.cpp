@@ -3,6 +3,9 @@
 #include "JBPlayer.h"
 #include "JBTransform.h"
 #include "JBSpriteRenderer.h"
+#include "JBInput.h"
+#include "JBTitleScene.h"
+#include "JBSceneManager.h"
 
 namespace JB
 {
@@ -15,7 +18,7 @@ namespace JB
 
 	void PlayScene::Initialize()
 	{
-		Player* bg = new Player();
+		bg = new Player();
 		Transform* tr = bg->AddComponent<Transform>();
 		tr->SetPos(Vector2(0, 0));
 		tr->SetName(L"TR");
@@ -24,7 +27,7 @@ namespace JB
 		sr->SetName(L"SR");
 		sr->ImageLoad(L"C:\\C++\\JBEngine\\Resources\\PelicanTown.png");
 
-		AddGameObject(bg);
+		AddGameObject(bg, eLayerType::BackGround);
 	}
 
 	void PlayScene::Update()
@@ -35,10 +38,27 @@ namespace JB
 	void PlayScene::LateUpdate()
 	{
 		Scene::LateUpdate();
+
+		if (Input::GetKeyDown(eKeyCode::N))
+		{
+			SceneManager::LoadScene(L"TitleScene");
+		}
 	}
 
 	void PlayScene::Render(HDC hdc)
 	{
 		Scene::Render(hdc);
+
+		wchar_t str[50] = L"Play Scene";
+		TextOut(hdc, 0, 0, str, 10);
+	}
+	void PlayScene::OnEnter()
+	{
+
+	}
+	void PlayScene::OnExit()
+	{
+		Transform* tr = bg->GetComponent<Transform>();
+		tr->SetPos(Vector2(0, 0));
 	}
 }

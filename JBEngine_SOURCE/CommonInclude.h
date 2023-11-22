@@ -17,4 +17,6 @@
 #include <gdiplus.h>
 #pragma comment(lib, "gdiplus.lib")
 
+#include "JBEnums.h"
+
 //#pragma comment(lib, "dsound.lib");

@@ -40,5 +40,8 @@ namespace JB
 	void FarmhouseScene::Render(HDC hdc)
 	{
 		Scene::Render(hdc);
+
+		wchar_t str[50] = L"Farmhouse Scene";
+		TextOut(hdc, 0, 0, str, 15);
 	}
 }
