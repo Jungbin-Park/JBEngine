@@ -14,7 +14,6 @@ namespace JB
 		void LateUpdate() override;
 		void Render(HDC hdc) override;
 
-
 		void OnEnter() override;
 		void OnExit() override;
 

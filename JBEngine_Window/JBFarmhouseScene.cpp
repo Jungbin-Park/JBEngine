@@ -3,6 +3,10 @@
 #include "JBPlayer.h"
 #include "JBTransform.h"
 #include "JBSpriteRenderer.h"
+#include "JBInput.h"
+#include "JBTitleScene.h"
+#include "JBSceneManager.h"
+#include "JBObject.h"
 
 namespace JB
 {
@@ -15,16 +19,12 @@ namespace JB
 
 	void FarmhouseScene::Initialize()
 	{
-		Player* bg = new Player();
-		Transform* tr = bg->AddComponent<Transform>();
-		tr->SetPos(Vector2(0, 0));
-		tr->SetName(L"TR");
-
+		bg = object::Instantiate<Player>(enums::eLayerType::BackGround, Vector2(100.0f, 100.0f));
 		SpriteRenderer* sr = bg->AddComponent<SpriteRenderer>();
-		sr->SetName(L"SR");
 		sr->ImageLoad(L"C:\\C++\\JBEngine\\Resources\\Farmhouse.png");
 
-		AddGameObject(bg);
+		//  게임 오브젝트 생성 후에 레이어와 게임 오브젝트들의 init함수를 호출
+		Scene::Initialize();
 	}
 
 	void FarmhouseScene::Update()
@@ -43,5 +43,11 @@ namespace JB
 
 		wchar_t str[50] = L"Farmhouse Scene";
 		TextOut(hdc, 0, 0, str, 15);
+	}
+	void FarmhouseScene::OnEnter()
+	{
+	}
+	void FarmhouseScene::OnExit()
+	{
 	}
 }

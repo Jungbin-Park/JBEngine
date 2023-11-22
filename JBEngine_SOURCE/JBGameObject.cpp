@@ -1,12 +1,14 @@
 #include "JBGameObject.h"
 #include "JBInput.h"
 #include "JBTime.h"
+#include "JBTransform.h"
 
 
 namespace JB
 {
 	GameObject::GameObject()
 	{
+		initializeTransform();
 	}
 	GameObject::~GameObject()
 	{
@@ -43,5 +45,9 @@ namespace JB
 		{
 			comp->Render(hdc);
 		}
+	}
+	void GameObject::initializeTransform()
+	{
+		AddComponent<Transform>();
 	}
 }

@@ -1,6 +1,6 @@
 #pragma once
 
-namespace JB
+namespace JB::enums
 {
 	enum class eLayerType
 	{

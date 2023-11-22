@@ -23,6 +23,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)JBInput.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JBLayer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JBMath.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JBObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JBResource.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JBScene.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JBSceneManager.h" />
