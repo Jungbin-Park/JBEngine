@@ -13,8 +13,8 @@ namespace JB
 		SceneManager::CreateScene<FarmhouseScene>(L"FarmhouseScene");
 		//SceneManager::CreateScene<EndScene>(L"EndScene");
 
-		//SceneManager::LoadScene(L"PlayScene");
 		SceneManager::LoadScene(L"TitleScene");
+		//SceneManager::LoadScene(L"PlayScene");
 		//SceneManager::LoadScene(L"FarmhouseScene");
 	}
 }

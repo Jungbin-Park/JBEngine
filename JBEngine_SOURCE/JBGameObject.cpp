@@ -8,6 +8,7 @@ namespace JB
 {
 	GameObject::GameObject()
 	{
+		mComponents.resize((UINT)enums::eComponentType::End);
 		initializeTransform();
 	}
 	GameObject::~GameObject()
@@ -22,6 +23,9 @@ namespace JB
 	{
 		for (Component* comp : mComponents)
 		{
+			if (comp == nullptr)
+				continue;
+
 			comp->Initialize();
 		}
 	}
@@ -29,6 +33,9 @@ namespace JB
 	{
 		for (Component* comp : mComponents)
 		{
+			if (comp == nullptr)
+				continue;
+
 			comp->Update();
 		}
 	}
@@ -36,6 +43,9 @@ namespace JB
 	{
 		for (Component* comp : mComponents)
 		{
+			if (comp == nullptr)
+				continue;
+
 			comp->LateUpdate();
 		}
 	}
@@ -43,6 +53,9 @@ namespace JB
 	{
 		for (Component* comp : mComponents)
 		{
+			if (comp == nullptr)
+				continue;
+
 			comp->Render(hdc);
 		}
 	}

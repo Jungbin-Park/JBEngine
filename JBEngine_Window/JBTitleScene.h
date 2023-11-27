@@ -18,8 +18,7 @@ namespace JB
 		void OnExit() override;
 
 	private:
-		class Player* bg;
-		class Player* logo;
+		class Player* mBackground;
 	};
 }
 

@@ -4,9 +4,6 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)JBComponent.cpp">
       <Filter>Component</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)JBTransform.cpp">
-      <Filter>Component</Filter>
-    </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)JBGameObject.cpp">
       <Filter>GameObject</Filter>
     </ClCompile>
@@ -28,9 +25,6 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)JBApplication.cpp">
       <Filter>High Level Interface</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)JBSpriteRenderer.cpp">
-      <Filter>Component</Filter>
-    </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)JBMath.cpp">
       <Filter>Common</Filter>
     </ClCompile>
@@ -46,12 +40,24 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)JBTexture.cpp">
       <Filter>Resource\Texture</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)JBScript.cpp">
+      <Filter>Component\Script</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)JBTransform.cpp">
+      <Filter>Component\Transform</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)JBSpriteRenderer.cpp">
+      <Filter>Component\SpriteRenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)JBCamera.cpp">
+      <Filter>Component\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)JBRenderer.cpp">
+      <Filter>Renderer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)JBComponent.h">
-      <Filter>Component</Filter>
-    </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)JBTransform.h">
       <Filter>Component</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)JBGameObject.h">
@@ -78,19 +84,12 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)JBApplication.h">
       <Filter>High Level Interface</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)JBSpriteRenderer.h">
-      <Filter>Component</Filter>
-    </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)JBMath.h">
       <Filter>Common</Filter>
-    </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)JBLayer.h">
-      <Filter>Layer</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)JBEnums.h">
       <Filter>Common</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)JBObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JBResource.h">
       <Filter>Resource</Filter>
     </ClInclude>
@@ -102,6 +101,27 @@
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)LoadResources.h">
       <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)JBScript.h">
+      <Filter>Component\Script</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)JBTransform.h">
+      <Filter>Component\Transform</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)JBSpriteRenderer.h">
+      <Filter>Component\SpriteRenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)JBObject.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)JBCamera.h">
+      <Filter>Component\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)JBRenderer.h">
+      <Filter>Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)JBLayer.h">
+      <Filter>Layer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -131,6 +151,21 @@
     </Filter>
     <Filter Include="Resource\Texture">
       <UniqueIdentifier>{76c1a8f1-b57d-46a0-a1cd-9b5fa1fd0162}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Script">
+      <UniqueIdentifier>{96a9f1a6-3513-4327-8cc9-adbb82ec667a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Transform">
+      <UniqueIdentifier>{ca038a45-00be-4915-810a-e59abb59932d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\SpriteRenderer">
+      <UniqueIdentifier>{fb137538-0f38-4e2f-a483-d3a47cc4a35a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Camera">
+      <UniqueIdentifier>{31b0ab0b-68cd-4fd5-94c2-a8ea7c6d7534}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Renderer">
+      <UniqueIdentifier>{4d538b69-6bb8-4e4e-a412-763fe34f80d0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

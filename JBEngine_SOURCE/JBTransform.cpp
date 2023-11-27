@@ -4,6 +4,7 @@
 namespace JB
 {
 	Transform::Transform()
+		: Component(enums::eComponentType::Transform)
 	{
 
 	}

@@ -2,11 +2,12 @@
 #include "JBGameObject.h"
 #include "JBTransform.h"
 #include "JBTexture.h"
+#include "JBRenderer.h"
 
 namespace JB
 {
 	SpriteRenderer::SpriteRenderer()
-		: Component()
+		: Component(enums::eComponentType::SpriteRenderer)
 		, mTexture(nullptr)
 		, mSize(Vector2::One)
 	{
@@ -39,6 +40,8 @@ namespace JB
 
 		Transform* tr = GetOwner()->GetComponent<Transform>();
 		Vector2 pos = tr->GetPosition();
+
+		pos = renderer::mainCamera->CalculatePosition(pos);
 
 		// Bmp 파일인 경우
 		if (mTexture->GetTextureType() == graphics::Texture::eTextureType::Bmp)

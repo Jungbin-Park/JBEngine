@@ -7,11 +7,11 @@
     <Filter Include="Contents">
       <UniqueIdentifier>{70cd9cd6-c312-4cbc-ac34-0aed22c54b9d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Scripts">
+      <UniqueIdentifier>{2e0a0352-065c-4227-915a-902927cf7d60}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="JBLoadScene.h">
-      <Filter>Scenes</Filter>
-    </ClInclude>
     <ClInclude Include="JBPlayScene.h">
       <Filter>Scenes</Filter>
     </ClInclude>
@@ -22,6 +22,12 @@
       <Filter>Scenes</Filter>
     </ClInclude>
     <ClInclude Include="JBTitleScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="JBPlayerScript.h">
+      <Filter>Scripts</Filter>
+    </ClInclude>
+    <ClInclude Include="JBLoadScene.h">
       <Filter>Scenes</Filter>
     </ClInclude>
   </ItemGroup>
@@ -37,6 +43,9 @@
     </ClCompile>
     <ClCompile Include="JBTitleScene.cpp">
       <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="JBPlayerScript.cpp">
+      <Filter>Scripts</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

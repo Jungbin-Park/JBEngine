@@ -64,7 +64,7 @@ namespace JB
 	void Application::clearRenderTarget()
 	{
 		// clear
-		Rectangle(mBackHdc, -1, -1, 1601, 901);
+		Rectangle(mBackHdc, -1, -1, 1201, 901);
 	}
 
 	void Application::copyRenderTarget(HDC source, HDC dest)
