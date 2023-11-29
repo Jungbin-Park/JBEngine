@@ -15,6 +15,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JBAnimation.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JBAnimator.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JBApplication.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JBCamera.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JBComponent.h" />
@@ -38,6 +40,8 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)LoadResources.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)JBAnimation.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JBAnimator.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JBApplication.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JBCamera.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JBComponent.cpp" />

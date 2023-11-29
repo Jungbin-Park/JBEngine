@@ -7,6 +7,7 @@ namespace JB::enums
 		Transform,
 		SpriteRenderer,
 		Script,
+		Animator,
 		Camera,
 		End,
 	};
@@ -26,6 +27,7 @@ namespace JB::enums
 	{
 		Texture,
 		AudioClip,
+		Animation,
 		Prefab,
 		End,
 	};

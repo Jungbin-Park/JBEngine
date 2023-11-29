@@ -12,6 +12,7 @@
 #include "JBPlayerScript.h"
 #include "JBCamera.h"
 #include "JBRenderer.h"
+#include "JBAnimator.h"
 
 namespace JB
 {
@@ -31,12 +32,16 @@ namespace JB
 
 		// 플레이어
 		mPlayer = object::Instantiate<Player>(enums::eLayerType::Player /*Vector2(100.0f, 100.0f)*/);
-		SpriteRenderer* sr = mPlayer->AddComponent<SpriteRenderer>();
-		sr->SetSize(Vector2(3.0f, 3.0f));
+		//SpriteRenderer* sr = mPlayer->AddComponent<SpriteRenderer>();
+		//sr->SetSize(Vector2(2.0f, 2.0f));
 		mPlayer->AddComponent<PlayerScript>();
 
-		graphics::Texture* backgroundTexture = Resources::Find<graphics::Texture>(L"Player");
-		sr->SetTexture(backgroundTexture);
+		graphics::Texture* playerTexture = Resources::Find<graphics::Texture>(L"Player");
+		Animator* animator = mPlayer->AddComponent<Animator>();
+		animator->CreateAnimation(L"CatFrontMove", playerTexture, Vector2(0.0f, 0.0f), Vector2(32.0f, 32.0f),
+									Vector2::Zero, 4, 1.0f);
+		animator->PlayAnimation(L"CatFrontMove", true);
+		//sr->SetTexture(backgroundTexture);
 
 		// 배경화면
 		GameObject* town = object::Instantiate<GameObject>
@@ -44,7 +49,7 @@ namespace JB
 		SpriteRenderer* townSr = town->AddComponent<SpriteRenderer>();
 		townSr->SetSize(Vector2(3.0f, 3.0f));
 
-		graphics::Texture* townTexture = Resources::Find<graphics::Texture>(L"");
+		graphics::Texture* townTexture = Resources::Find<graphics::Texture>(L"Town");
 		townSr->SetTexture(townTexture);
 
 		//  게임 오브젝트 생성 후에 레이어와 게임 오브젝트들의 init함수를 호출
@@ -62,7 +67,7 @@ namespace JB
 
 		if (Input::GetKeyDown(eKeyCode::N))
 		{
-			SceneManager::LoadScene(L"TitleScene");
+			SceneManager::LoadScene(L"FarmhouseScene");
 		}
 	}
 

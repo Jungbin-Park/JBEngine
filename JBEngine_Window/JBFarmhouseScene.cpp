@@ -32,7 +32,7 @@ namespace JB
 		// 플레이어
 		mPlayer = object::Instantiate<Player>(enums::eLayerType::Player /*Vector2(100.0f, 100.0f)*/);
 		SpriteRenderer* sr = mPlayer->AddComponent<SpriteRenderer>();
-		sr->SetSize(Vector2(3.0f, 3.0f));
+		sr->SetSize(Vector2(2.0f, 2.0f));
 		mPlayer->AddComponent<PlayerScript>();
 
 		graphics::Texture* backgroundTexture = Resources::Find<graphics::Texture>(L"Player");
@@ -40,9 +40,9 @@ namespace JB
 
 		// 배경
 		GameObject* farmhouseBg = object::Instantiate<GameObject>
-			(enums::eLayerType::BackGround);
+			(enums::eLayerType::BackGround, Vector2(400.0f, 100.0f));
 		SpriteRenderer* bgSr = farmhouseBg->AddComponent<SpriteRenderer>();
-		bgSr->SetSize(Vector2(3.0f, 3.0f));
+		bgSr->SetSize(Vector2(2.0f, 2.0f));
 
 		graphics::Texture* farmhouseTexture = Resources::Find<graphics::Texture>(L"Farmhouse");
 		bgSr->SetTexture(farmhouseTexture);
@@ -59,6 +59,11 @@ namespace JB
 	void FarmhouseScene::LateUpdate()
 	{
 		Scene::LateUpdate();
+
+		if (Input::GetKeyDown(eKeyCode::N))
+		{
+			SceneManager::LoadScene(L"TitleScene");
+		}
 	}
 
 	void FarmhouseScene::Render(HDC hdc)
