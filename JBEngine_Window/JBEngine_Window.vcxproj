@@ -134,6 +134,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="JBCat.h" />
+    <ClInclude Include="JBCatScript.h" />
     <ClInclude Include="JBFarmhouseScene.h" />
     <ClInclude Include="JBLoadScene.h" />
     <ClInclude Include="JBPlayer.h" />
@@ -142,6 +144,8 @@
     <ClInclude Include="JBTitleScene.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="JBCat.cpp" />
+    <ClCompile Include="JBCatScript.cpp" />
     <ClCompile Include="JBFarmhouseScene.cpp" />
     <ClCompile Include="JBPlayer.cpp" />
     <ClCompile Include="JBPlayerScript.cpp" />

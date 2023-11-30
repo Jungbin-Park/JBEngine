@@ -27,8 +27,8 @@ namespace JB
 
 		switch (mState)
 		{
-		case JB::PlayerScript::eState::SitDown:
-			sitDown();
+		case JB::PlayerScript::eState::Idle:
+			idle();
 			break;
 		case JB::PlayerScript::eState::Walk:
 			move();
@@ -47,7 +47,7 @@ namespace JB
 	void PlayerScript::Render(HDC hdc)
 	{
 	}
-	void PlayerScript::sitDown()
+	void PlayerScript::idle()
 	{
 		if (Input::GetKey(eKeyCode::D))
 		{

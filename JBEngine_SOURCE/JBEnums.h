@@ -19,6 +19,7 @@ namespace JB::enums
 		Logo,
 		//Tree
 		//character
+		Animal,
 		Player,
 		Particle,
 		Max = 16,

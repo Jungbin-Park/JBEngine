@@ -8,7 +8,7 @@ namespace JB
 	public:
 		enum class eState
 		{
-			SitDown,
+			Idle,
 			Walk,
 			Sleep,
 			Attack,
@@ -23,7 +23,7 @@ namespace JB
 		void Render(HDC hdc) override;
 
 	private:
-		void sitDown();
+		void idle();
 		void move();
 
 	private:

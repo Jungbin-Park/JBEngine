@@ -30,6 +30,12 @@
     <ClInclude Include="JBLoadScene.h">
       <Filter>Scenes</Filter>
     </ClInclude>
+    <ClInclude Include="JBCat.h">
+      <Filter>Contents</Filter>
+    </ClInclude>
+    <ClInclude Include="JBCatScript.h">
+      <Filter>Scripts</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="JBPlayScene.cpp">
@@ -45,6 +51,12 @@
       <Filter>Scenes</Filter>
     </ClCompile>
     <ClCompile Include="JBPlayerScript.cpp">
+      <Filter>Scripts</Filter>
+    </ClCompile>
+    <ClCompile Include="JBCat.cpp">
+      <Filter>Contents</Filter>
+    </ClCompile>
+    <ClCompile Include="JBCatScript.cpp">
       <Filter>Scripts</Filter>
     </ClCompile>
   </ItemGroup>

@@ -7,6 +7,7 @@
 #include "..\\JBEngine_SOURCE\\JBApplication.h"
 #include "..\\JBEngine_SOURCE\\LoadResources.h"
 #include "..\\JBEngine_Window\\JBLoadScene.h"
+#include <time.h>
 
 //#pragma comment (lib, "..\\x64\\Debug\\JBEngine_Window.lib")
 
@@ -145,6 +146,9 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
    JB::LoadResources();
    JB::LoadScenes();
+
+   int a = 0;
+   srand((unsigned int)(&a));
 
    return TRUE;
 }
