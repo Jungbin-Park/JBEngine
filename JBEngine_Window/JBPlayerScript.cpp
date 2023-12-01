@@ -8,7 +8,7 @@
 namespace JB
 {
 	PlayerScript::PlayerScript()
-		: mState(PlayerScript::eState::SitDown)
+		: mState(PlayerScript::eState::Idle)
 		, mAnimator(nullptr)
 	{
 	}
@@ -34,6 +34,9 @@ namespace JB
 			move();
 			break;
 		case JB::PlayerScript::eState::Sleep:
+			break;
+		case JB::PlayerScript::eState::GiveWater:
+			giveWater();
 			break;
 		case JB::PlayerScript::eState::Attack:
 			break;
@@ -69,6 +72,12 @@ namespace JB
 			mState = PlayerScript::eState::Walk;
 			mAnimator->PlayAnimation(L"DownWalk");
 		}
+		if (Input::GetKey(eKeyCode::LButton))
+		{
+			mState = PlayerScript::eState::GiveWater;
+			mAnimator->PlayAnimation(L"FrontGiveWater", false);
+			Vector2 mousePos = Input::GetMousePosition();
+		}
 	}
 	void PlayerScript::move()
 	{
@@ -97,8 +106,16 @@ namespace JB
 		if (Input::GetKeyUp(eKeyCode::D) || Input::GetKeyUp(eKeyCode::A)
 			|| Input::GetKeyUp(eKeyCode::W) || Input::GetKeyUp(eKeyCode::S))
 		{
-			mState = PlayerScript::eState::SitDown;
-			mAnimator->PlayAnimation(L"SitDown", false);
+			mState = PlayerScript::eState::Idle;
+			mAnimator->PlayAnimation(L"Idle", false);
+		}
+	}
+	void PlayerScript::giveWater()
+	{
+		if (mAnimator->IsComplete())
+		{
+			mState = eState::Idle;
+			mAnimator->PlayAnimation(L"Idle", false);
 		}
 	}
 }

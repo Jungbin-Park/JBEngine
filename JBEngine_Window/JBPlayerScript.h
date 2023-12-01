@@ -11,6 +11,7 @@ namespace JB
 			Idle,
 			Walk,
 			Sleep,
+			GiveWater,
 			Attack,
 		};
 
@@ -25,6 +26,7 @@ namespace JB
 	private:
 		void idle();
 		void move();
+		void giveWater();
 
 	private:
 		eState mState;

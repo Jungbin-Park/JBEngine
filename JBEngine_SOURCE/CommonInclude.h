@@ -7,6 +7,7 @@
 #include <algorithm>
 #include <string>
 #include <map>	
+#include <functional>
 
 #include "JBMath.h"
 

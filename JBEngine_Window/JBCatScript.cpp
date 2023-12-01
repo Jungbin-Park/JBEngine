@@ -63,7 +63,7 @@ namespace JB
 	void CatScript::move()
 	{
 		mTime += Time::DeltaTime();
-		if (mTime > 5.0f)
+		if (mTime > 2.0f)
 		{
 			int isLayDown = rand() % 2;
 			if (isLayDown)
@@ -76,13 +76,22 @@ namespace JB
 				mState = eState::SitDown;
 				mAnimator->PlayAnimation(L"SitDown", false);
 			}
-
-			Transform* tr = GetOwner()->GetComponent<Transform>();
-			translate(tr);
 		}
+
+		Transform* tr = GetOwner()->GetComponent<Transform>();
+		translate(tr);
 	}
 	void CatScript::layDown()
 	{
+		mTime += Time::DeltaTime();
+		if (mTime > 3.0f)
+		{
+			mState = CatScript::eState::Walk;
+			int direction = (rand() % 4);
+			mDirection = (eDirection)direction;
+			PlayWalkAnimationByDirection(mDirection);
+			mTime = 0.0f;
+		}
 	}
 	void CatScript::PlayWalkAnimationByDirection(eDirection dir)
 	{

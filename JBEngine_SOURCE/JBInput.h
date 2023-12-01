@@ -8,7 +8,7 @@ namespace JB
 		Down,
 		Pressed,
 		Up,
-		None
+		None,
 	};
 
 	enum class eKeyCode
@@ -17,6 +17,7 @@ namespace JB
 		A, S, D, F, G, H, J, K, L,
 		Z, X, C, V, B, N, M, 
 		Left, Right, Down, Up,
+		LButton, MButton, RButton,
 		End,
 	};
 
@@ -36,6 +37,7 @@ namespace JB
 		static bool GetKeyDown(eKeyCode code) { return Keys[(UINT)code].state == eKeyState::Down; }
 		static bool GetKeyUp(eKeyCode code) { return Keys[(UINT)code].state == eKeyState::Up; }
 		static bool GetKey(eKeyCode code) { return Keys[(UINT)code].state == eKeyState::Pressed; }
+		static math::Vector2 GetMousePosition() { return mMousePosition; }
 
 	private:
 		static void createKeys();
@@ -44,10 +46,13 @@ namespace JB
 		static bool isKeyDown(eKeyCode code);
 		static void updateKeyDown(Input::Key& key);
 		static void updateKeyUp(Input::Key& key);
+		static void getMousePositionByWindow();
+		static void clearKeys();
 
 	private:
 		//eKeyState mState[] = eKeyState::Up; // 0 1 2 3
 		static std::vector<Key> Keys;	// 정적 변수
+		static math::Vector2 mMousePosition;
 
 	};
 }

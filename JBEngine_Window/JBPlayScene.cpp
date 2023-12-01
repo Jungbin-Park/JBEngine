@@ -37,25 +37,17 @@ namespace JB
 		mPlayer->AddComponent<PlayerScript>();
 
 		graphics::Texture* playerTexture = Resources::Find<graphics::Texture>(L"Player");
-		Animator* animator = mPlayer->AddComponent<Animator>();
+		Animator* playerAnimator = mPlayer->AddComponent<Animator>();
 
-		animator->CreateAnimation(L"DownWalk", playerTexture
-			, Vector2(0.0f, 0.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
-		animator->CreateAnimation(L"RightWalk", playerTexture
-			, Vector2(0.0f, 32.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
-		animator->CreateAnimation(L"UpWalk", playerTexture
-			, Vector2(0.0f, 64.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
-		animator->CreateAnimation(L"LeftWalk", playerTexture
-			, Vector2(0.0f, 96.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
-		animator->CreateAnimation(L"SitDown", playerTexture
-			, Vector2(0.0f, 128.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
-		animator->CreateAnimation(L"Grooming", playerTexture
-			, Vector2(0.0f, 160.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
+		playerAnimator->CreateAnimation(L"Idle", playerTexture
+			, Vector2(2000.0f, 250.0f), Vector2(250.0f, 250.0f), Vector2::Zero, 1, 0.1f);
+		// 이동 애니메이션 추가
+		playerAnimator->CreateAnimation(L"FrontGiveWater", playerTexture
+			, Vector2(0.0f, 2000.0f), Vector2(250.0f, 250.0f), Vector2::Zero, 12, 0.1f);
 
-		animator->PlayAnimation(L"SitDown", false);
+		playerAnimator->PlayAnimation(L"Idle", false);
 
 		mPlayer->GetComponent<Transform>()->SetPosition(Vector2(100.0f, 100.0f));
-		mPlayer->GetComponent<Transform>()->SetScale(Vector2(1.0f, 1.0f));
 		//sr->SetTexture(backgroundTexture);
 
 		///CAT
