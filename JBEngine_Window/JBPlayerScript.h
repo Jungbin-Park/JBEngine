@@ -23,6 +23,8 @@ namespace JB
 		void LateUpdate() override;
 		void Render(HDC hdc) override;
 
+		void WaterEvent();
+
 	private:
 		void idle();
 		void move();

@@ -25,14 +25,14 @@ namespace JB
 	void TitleScene::Initialize()
 	{
 		// 카메라
-		GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::None, Vector2(600.0f, 450.0f));
+		GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::None, Vector2(640.0f, 360.0f));
 		Camera* cameraComp = camera->AddComponent<Camera>();
 		renderer::mainCamera = cameraComp;
 
 		// 타이틀 배경
 		mBackground = object::Instantiate<Player>(enums::eLayerType::BackGround /*Vector2(100.0f, 100.0f)*/);
 		SpriteRenderer* sr = mBackground->AddComponent<SpriteRenderer>();
-		sr->SetSize(Vector2(1.0f, 1.0f));
+		sr->SetSize(Vector2(2.0f, 2.0f));
 		//mBackground->AddComponent<PlayerScript>();
 
 		graphics::Texture* backgroundTexture = Resources::Find<graphics::Texture>(L"BG");

@@ -50,6 +50,10 @@ namespace JB
 	void PlayerScript::Render(HDC hdc)
 	{
 	}
+	void PlayerScript::WaterEvent()
+	{
+		int a = 0;
+	}
 	void PlayerScript::idle()
 	{
 		if (Input::GetKey(eKeyCode::D))

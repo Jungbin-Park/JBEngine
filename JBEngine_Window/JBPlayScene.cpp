@@ -28,13 +28,15 @@ namespace JB
 	void PlayScene::Initialize()
 	{
 		// 카메라
-		GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::None, Vector2(600.0f, 450.0f));
+		GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::None, Vector2(640.0f, 360.0f));
 		Camera* cameraComp = camera->AddComponent<Camera>();
 		renderer::mainCamera = cameraComp;
 
 		// 플레이어
 		mPlayer = object::Instantiate<Player>(enums::eLayerType::Player /*Vector2(100.0f, 100.0f)*/);
-		mPlayer->AddComponent<PlayerScript>();
+		PlayerScript* plScript = mPlayer->AddComponent<PlayerScript>();
+
+		
 
 		graphics::Texture* playerTexture = Resources::Find<graphics::Texture>(L"Player");
 		Animator* playerAnimator = mPlayer->AddComponent<Animator>();
@@ -47,7 +49,13 @@ namespace JB
 
 		playerAnimator->PlayAnimation(L"Idle", false);
 
+		playerAnimator->GetCompleteEvent(L"FrontGiveWater") = std::bind(&PlayerScript::WaterEvent, plScript);
+
 		mPlayer->GetComponent<Transform>()->SetPosition(Vector2(100.0f, 100.0f));
+		mPlayer->GetComponent<Transform>()->SetScale(Vector2(0.5f, 0.5f));
+
+		cameraComp->SetTarget(mPlayer);
+
 		//sr->SetTexture(backgroundTexture);
 
 		///CAT
@@ -79,7 +87,7 @@ namespace JB
 		GameObject* town = object::Instantiate<GameObject>
 			(enums::eLayerType::BackGround);
 		SpriteRenderer* townSr = town->AddComponent<SpriteRenderer>();
-		townSr->SetSize(Vector2(1.0f, 1.0f));
+		townSr->SetSize(Vector2(2.0f, 2.0f));
 
 		graphics::Texture* townTexture = Resources::Find<graphics::Texture>(L"Town");
 		townSr->SetTexture(townTexture);

@@ -37,6 +37,9 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     UNREFERENCED_PARAMETER(hPrevInstance);
     UNREFERENCED_PARAMETER(lpCmdLine);
 
+    _CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
+    //_CrtSetBreakAlloc(251);
+
     // 깃허브 테스트
 
 
@@ -80,6 +83,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     }
 
     Gdiplus::GdiplusShutdown(gpToken);
+    application.Release();
 
     return (int) msg.wParam;
 }
@@ -126,8 +130,8 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
    hInst = hInstance; // 인스턴스 핸들을 전역 변수에 저장합니다.
 
-   const UINT width = 1200;
-   const UINT height = 900;
+   const UINT width = 1280;
+   const UINT height = 720;
 
    HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
       CW_USEDEFAULT, 0, width, height, nullptr, nullptr, hInstance, nullptr);

@@ -2,6 +2,7 @@
 #include "JBInput.h"
 #include "JBTime.h"
 #include "JBSceneManager.h"
+#include "JBResources.h"
 
 
 namespace JB
@@ -59,6 +60,12 @@ namespace JB
 		SceneManager::Render(mBackHdc);
 
 		copyRenderTarget(mBackHdc, mHdc);
+	}
+
+	void Application::Release()
+	{
+		SceneManager::Release();
+		Resources::Release();
 	}
 
 	void Application::clearRenderTarget()

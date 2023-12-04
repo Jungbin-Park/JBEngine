@@ -43,4 +43,12 @@ namespace JB
 	{
 		mActiveScene->Render(hdc);
 	}
+	void SceneManager::Release()
+	{
+		for (auto& iter : mScene)
+		{
+			delete iter.second;
+			iter.second = nullptr;
+		}
+	}
 }
