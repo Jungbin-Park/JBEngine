@@ -117,11 +117,22 @@ namespace JB
 		, Vector2 leftTop, Vector2 size, Vector2 offset, UINT spriteLength, float duration)
 	{
 		mTexture = spriteSheet;
+		UINT a = spriteSheet->GetWidth();
+		int switchingIndex = 0;
 		for (size_t i = 0; i < spriteLength; i++)
 		{
 			Sprite sprite = {};
-			sprite.leftTop.x = leftTop.x + (size.x * i);
+			sprite.leftTop.x = leftTop.x + (size.x * (i - switchingIndex));
 			sprite.leftTop.y = leftTop.y;
+
+			if (sprite.leftTop.x >= spriteSheet->GetWidth())
+			{
+				switchingIndex = i;
+				sprite.leftTop.x = 0;
+				leftTop.x = 0;
+				sprite.leftTop.y += size.y;
+				leftTop.y += size.y;
+			}
 			sprite.size = size;
 			sprite.offset = offset;
 			sprite.duration = duration;

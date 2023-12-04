@@ -27,28 +27,35 @@ namespace JB
 
 	void PlayScene::Initialize()
 	{
-		// 카메라
+		/// 카메라
 		GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::None, Vector2(640.0f, 360.0f));
 		Camera* cameraComp = camera->AddComponent<Camera>();
 		renderer::mainCamera = cameraComp;
 
-		// 플레이어
+		/// 플레이어
 		mPlayer = object::Instantiate<Player>(enums::eLayerType::Player /*Vector2(100.0f, 100.0f)*/);
 		PlayerScript* plScript = mPlayer->AddComponent<PlayerScript>();
-
-		
 
 		graphics::Texture* playerTexture = Resources::Find<graphics::Texture>(L"Player");
 		Animator* playerAnimator = mPlayer->AddComponent<Animator>();
 
 		playerAnimator->CreateAnimation(L"Idle", playerTexture
 			, Vector2(2000.0f, 250.0f), Vector2(250.0f, 250.0f), Vector2::Zero, 1, 0.1f);
-		// 이동 애니메이션 추가
+		playerAnimator->CreateAnimation(L"UpWalk", playerTexture
+			, Vector2(0.0f, 250.0f), Vector2(250.0f, 250.0f), Vector2::Zero, 8, 0.1f);
+		playerAnimator->CreateAnimation(L"DownWalk", playerTexture
+			, Vector2(2000.0f, 250.0f), Vector2(250.0f, 250.0f), Vector2::Zero, 7, 0.1f);
+		playerAnimator->CreateAnimation(L"LeftWalk", playerTexture
+			, Vector2(1500.0f, 0.0f), Vector2(250.0f, 250.0f), Vector2::Zero, 6, 0.1f);
+		playerAnimator->CreateAnimation(L"RightWalk", playerTexture
+			, Vector2(0.0f, 0.0f), Vector2(250.0f, 250.0f), Vector2::Zero, 6, 0.1f);
 		playerAnimator->CreateAnimation(L"FrontGiveWater", playerTexture
 			, Vector2(0.0f, 2000.0f), Vector2(250.0f, 250.0f), Vector2::Zero, 12, 0.1f);
 
+
 		playerAnimator->PlayAnimation(L"Idle", false);
 
+			// 애니메이션 바인딩
 		playerAnimator->GetCompleteEvent(L"FrontGiveWater") = std::bind(&PlayerScript::WaterEvent, plScript);
 
 		mPlayer->GetComponent<Transform>()->SetPosition(Vector2(100.0f, 100.0f));
@@ -58,7 +65,7 @@ namespace JB
 
 		//sr->SetTexture(backgroundTexture);
 
-		///CAT
+		/// CAT
 		Cat* cat = object::Instantiate<Cat>(enums::eLayerType::Animal);
 		cat->AddComponent<CatScript>();
 
@@ -83,7 +90,7 @@ namespace JB
 		cat->GetComponent<Transform>()->SetPosition(Vector2(200.0f, 200.0f));
 		cat->GetComponent<Transform>()->SetScale(Vector2(2.0f, 2.0f));
 
-		// 배경화면
+		/// 배경화면
 		GameObject* town = object::Instantiate<GameObject>
 			(enums::eLayerType::BackGround);
 		SpriteRenderer* townSr = town->AddComponent<SpriteRenderer>();

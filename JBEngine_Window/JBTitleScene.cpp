@@ -38,6 +38,10 @@ namespace JB
 		graphics::Texture* backgroundTexture = Resources::Find<graphics::Texture>(L"BG");
 		sr->SetTexture(backgroundTexture);
 
+		// 배경 구름
+		GameObject* clouds = object::Instantiate<GameObject>(enums::eLayerType::Cloud);
+		SpriteRenderer* clSr = clouds->AddComponent<SpriteRenderer>();
+
 		// 타이틀 로고
 		GameObject* logo = object::Instantiate<GameObject>
 			(enums::eLayerType::Logo, Vector2(250.0f, 225.0f));

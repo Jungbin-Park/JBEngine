@@ -16,6 +16,7 @@ namespace JB::enums
 	{
 		None,
 		BackGround,
+		Cloud,
 		Logo,
 		//Tree
 		//character
