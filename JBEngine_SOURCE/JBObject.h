@@ -32,4 +32,12 @@ namespace JB::object
 
 		return gameObject;
 	}
+
+	//static void Destroy(GameObject* gameObject)
+	//{
+	//	if (gameObject == nullptr)
+	//		return;
+
+	//	gameObject->Death();
+	//}
 }

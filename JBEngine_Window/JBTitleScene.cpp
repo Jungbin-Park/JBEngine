@@ -12,6 +12,7 @@
 #include "JBPlayerScript.h"
 #include "JBCamera.h"
 #include "JBRenderer.h"
+#include "JBAnimator.h"
 
 namespace JB
 {
@@ -40,11 +41,23 @@ namespace JB
 
 		// 배경 구름
 		GameObject* clouds = object::Instantiate<GameObject>(enums::eLayerType::Cloud);
-		SpriteRenderer* clSr = clouds->AddComponent<SpriteRenderer>();
+		//SpriteRenderer* clSr = clouds->AddComponent<SpriteRenderer>();
+
+		graphics::Texture* cloudTexture = Resources::Find<graphics::Texture>(L"Cloud");
+		Animator* cloudAnimator = clouds->AddComponent<Animator>();
+
+		cloudAnimator->CreateAnimation(L"CloudMove", cloudTexture
+			, Vector2(128.0f, 406.0f), Vector2(128.0f, 58.0f), Vector2::Zero, 1, 0.1f);
+
+		cloudAnimator->PlayAnimation(L"CloudMove", false);
+
+		clouds->GetComponent<Transform>()->SetPosition(Vector2(100.0f, 100.0f));
+		clouds->GetComponent<Transform>()->SetScale(Vector2(1.0f, 1.0f));
+
 
 		// 타이틀 로고
 		GameObject* logo = object::Instantiate<GameObject>
-			(enums::eLayerType::Logo, Vector2(250.0f, 225.0f));
+			(enums::eLayerType::Logo, Vector2(440.0f, 200.0f));
 		SpriteRenderer* bgSr = logo->AddComponent<SpriteRenderer>();
 		bgSr->SetSize(Vector2(1.0f, 1.0f));
 

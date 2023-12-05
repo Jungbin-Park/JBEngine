@@ -4,6 +4,7 @@
 #include "JBTime.h"
 #include "JBGameObject.h"
 #include "JBAnimator.h"
+#include "JBObject.h"
 
 namespace JB
 {
@@ -11,6 +12,8 @@ namespace JB
 		: mState(CatScript::eState::SitDown)
 		, mAnimator(nullptr)
 		, mTime(0.0f)
+		, mDeathTime(0.0f)
+		, mDirection(eDirection::Down)
 	{
 	}
 	CatScript::~CatScript()
@@ -21,6 +24,13 @@ namespace JB
 	}
 	void CatScript::Update()
 	{
+		/*mDeathTime += Time::DeltaTime();
+		if (mDeathTime > 6.0f)
+		{
+			object::Destroy(GetOwner());
+		}*/
+
+
 		if (mAnimator == nullptr)
 		{
 			mAnimator = GetOwner()->GetComponent<Animator>();

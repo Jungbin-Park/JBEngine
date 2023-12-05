@@ -2,11 +2,27 @@
 #include "CommonInclude.h"
 #include "JBComponent.h"
 
+namespace JB::object
+{
+	void Destroy(GameObject* gameObject);
+}
+
 namespace JB
 {
 	class GameObject
 	{
 	public:
+		friend void object::Destroy(GameObject* obj);
+		//friend Component;
+
+		enum class eState
+		{
+			Active,
+			Paused,
+			Dead,
+			End,
+		};
+
 		GameObject();
 		~GameObject();
 
@@ -40,10 +56,21 @@ namespace JB
 			return comp;
 		}
 
-	private:
-		void initializeTransform();
+		eState GetState() { return mState; }
+		void SetActive(bool power)
+		{
+			if (power == true) mState = eState::Active;
+			if (power == false) mState = eState::Paused;
+		}
+		bool IsActive() { return mState == eState::Active; }
+		bool IsDead() { return mState == eState::Dead; }
 
 	private:
+		void initializeTransform();
+		void death() { mState = eState::Dead; }
+
+	private:
+		eState mState;
 		std::vector<Component*> mComponents;
 
 	};
