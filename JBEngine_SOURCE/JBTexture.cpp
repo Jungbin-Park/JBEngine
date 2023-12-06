@@ -62,6 +62,12 @@ namespace JB::graphics
 			mWidth = info.bmWidth;
 			mHeight = info.bmHeight;
 
+			// 알파 값 여부 확인
+			if (info.bmBitsPixel == 32)
+				mbAlpha = true;
+			else if (info.bmBitsPixel == 24)
+				mbAlpha = false;
+
 			HDC mainDC = application.GetHdc();
 			mHdc = CreateCompatibleDC(mainDC);
 
