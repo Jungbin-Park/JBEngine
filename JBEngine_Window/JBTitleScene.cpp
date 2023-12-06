@@ -13,6 +13,7 @@
 #include "JBCamera.h"
 #include "JBRenderer.h"
 #include "JBAnimator.h"
+#include "JBcloudScript.h"
 
 namespace JB
 {
@@ -39,20 +40,23 @@ namespace JB
 		graphics::Texture* backgroundTexture = Resources::Find<graphics::Texture>(L"BG");
 		sr->SetTexture(backgroundTexture);
 
-		// 배경 구름
-		GameObject* clouds = object::Instantiate<GameObject>(enums::eLayerType::Cloud);
-		//SpriteRenderer* clSr = clouds->AddComponent<SpriteRenderer>();
+		// 배경 구름1
+		GameObject* cloud1 = object::Instantiate<GameObject>(enums::eLayerType::Cloud);
+		cloud1->AddComponent<cloudScript>();
 
-		graphics::Texture* cloudTexture = Resources::Find<graphics::Texture>(L"Cloud");
-		Animator* cloudAnimator = clouds->AddComponent<Animator>();
+		graphics::Texture* cloudTexture = Resources::Find<graphics::Texture>(L"Cloud1");
+		Animator* cloudAnimator = cloud1->AddComponent<Animator>();
+		cloudAnimator->CreateAnimation(L"CloudMove1", cloudTexture
+			, Vector2(0.0f, 0.0f), Vector2(132.0f, 60.0f), Vector2::Zero, 1, 2.0f);
+		/*cloudAnimator->CreateAnimation(L"CloudMove2", cloudTexture
+			, Vector2(0.0f, 0.0f), Vector2(132.0f, 60.0f), Vector2::Zero, 1, 0.1f);
+		cloudAnimator->CreateAnimation(L"CloudMove3", cloudTexture
+			, Vector2(0.0f, 0.0f), Vector2(132.0f, 60.0f), Vector2::Zero, 1, 0.1f);*/
 
-		cloudAnimator->CreateAnimation(L"CloudMove", cloudTexture
-			, Vector2(128.0f, 406.0f), Vector2(128.0f, 58.0f), Vector2::Zero, 1, 0.1f);
+		cloudAnimator->PlayAnimation(L"CloudMove1", false);
 
-		cloudAnimator->PlayAnimation(L"CloudMove", false);
-
-		clouds->GetComponent<Transform>()->SetPosition(Vector2(100.0f, 100.0f));
-		clouds->GetComponent<Transform>()->SetScale(Vector2(1.0f, 1.0f));
+		cloud1->GetComponent<Transform>()->SetPosition(Vector2(100.0f, 100.0f));
+		cloud1->GetComponent<Transform>()->SetScale(Vector2(2.0f, 2.0f));
 
 
 		// 타이틀 로고

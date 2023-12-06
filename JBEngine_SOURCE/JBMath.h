@@ -1,5 +1,6 @@
 #pragma once
 
+
 namespace JB::math
 {
 #define PI 3.141592f
@@ -46,7 +47,7 @@ namespace JB::math
 			return Vector2(x * value, y * value);
 		}
 
-		void clear()
+		/*void clear()
 		{
 			x = 0.0f;
 			y = 0.0f;
@@ -64,11 +65,11 @@ namespace JB::math
 			y /= len;
 
 			return *this;
-		}
+		}*/
 
 	};
 
-	Vector2 Rotate(Vector2 vector, float degree)
+	/*Vector2 Rotate(Vector2 vector, float degree)
 	{
 		float radian = (degree / 180.f) * PI;
 		vector.normalize();
@@ -86,6 +87,6 @@ namespace JB::math
 	float Cross(Vector2 v1, Vector2 v2)
 	{
 		return v1.x * v2.y - v1.y * v2.x;
-	}
+	}*/
 }
 

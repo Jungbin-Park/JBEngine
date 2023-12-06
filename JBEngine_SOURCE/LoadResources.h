@@ -10,7 +10,7 @@ namespace JB
 		Resources::Load<graphics::Texture>(L"BG", L"C:\\C++\\JBEngine\\Resources\\stardewPanorama.png");
 		//Resources::Load<graphics::Texture>(L"LOGO", L"C:\\C++\\JBEngine\\Resources\\Logo.png");
 		Resources::Load<graphics::Texture>(L"LOGO", L"C:\\C++\\JBEngine\\Resources\\TitleButtons.bmp");
-		Resources::Load<graphics::Texture>(L"Cloud", L"C:\\C++\\JBEngine\\Resources\\CloudsAlpha.bmp");
+		Resources::Load<graphics::Texture>(L"Cloud1", L"C:\\C++\\JBEngine\\Resources\\cloud1.bmp");
 
 
 		// ¸Ê

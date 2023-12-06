@@ -12,6 +12,9 @@
 #include "JBPlayerScript.h"
 #include "JBCamera.h"
 #include "JBRenderer.h"
+#include "JBAnimator.h"
+#include "JBCat.h"
+#include "JBCatScript.h"
 
 namespace JB
 {
@@ -29,14 +32,36 @@ namespace JB
 		Camera* cameraComp = camera->AddComponent<Camera>();
 		renderer::mainCamera = cameraComp;
 
-		// 플레이어
+		/// 플레이어
 		mPlayer = object::Instantiate<Player>(enums::eLayerType::Player /*Vector2(100.0f, 100.0f)*/);
-		SpriteRenderer* sr = mPlayer->AddComponent<SpriteRenderer>();
-		sr->SetSize(Vector2(2.0f, 2.0f));
-		mPlayer->AddComponent<PlayerScript>();
+		PlayerScript* plScript = mPlayer->AddComponent<PlayerScript>();
 
-		graphics::Texture* backgroundTexture = Resources::Find<graphics::Texture>(L"Player");
-		sr->SetTexture(backgroundTexture);
+		graphics::Texture* playerTexture = Resources::Find<graphics::Texture>(L"Player");
+		Animator* playerAnimator = mPlayer->AddComponent<Animator>();
+
+		playerAnimator->CreateAnimation(L"Idle", playerTexture
+			, Vector2(2000.0f, 250.0f), Vector2(250.0f, 250.0f), Vector2::Zero, 1, 0.1f);
+		playerAnimator->CreateAnimation(L"UpWalk", playerTexture
+			, Vector2(0.0f, 250.0f), Vector2(250.0f, 250.0f), Vector2::Zero, 8, 0.1f);
+		playerAnimator->CreateAnimation(L"DownWalk", playerTexture
+			, Vector2(2000.0f, 250.0f), Vector2(250.0f, 250.0f), Vector2::Zero, 7, 0.1f);
+		playerAnimator->CreateAnimation(L"LeftWalk", playerTexture
+			, Vector2(1500.0f, 0.0f), Vector2(250.0f, 250.0f), Vector2::Zero, 6, 0.1f);
+		playerAnimator->CreateAnimation(L"RightWalk", playerTexture
+			, Vector2(0.0f, 0.0f), Vector2(250.0f, 250.0f), Vector2::Zero, 6, 0.1f);
+		playerAnimator->CreateAnimation(L"FrontGiveWater", playerTexture
+			, Vector2(0.0f, 2000.0f), Vector2(250.0f, 250.0f), Vector2::Zero, 12, 0.1f);
+
+
+		playerAnimator->PlayAnimation(L"Idle", false);
+
+		// 애니메이션 바인딩
+		playerAnimator->GetCompleteEvent(L"FrontGiveWater") = std::bind(&PlayerScript::WaterEvent, plScript);
+
+		mPlayer->GetComponent<Transform>()->SetPosition(Vector2(100.0f, 100.0f));
+		mPlayer->GetComponent<Transform>()->SetScale(Vector2(0.5f, 0.5f));
+
+		cameraComp->SetTarget(mPlayer);
 
 		// 배경
 		GameObject* farmhouseBg = object::Instantiate<GameObject>
