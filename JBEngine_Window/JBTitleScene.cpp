@@ -51,6 +51,16 @@ namespace JB
 		titleBgSr->SetTexture(titleTexture);
 
 
+		// 타이틀 로고
+		GameObject* logo = object::Instantiate<GameObject>
+			(enums::eLayerType::Logo, Vector2(300.0f, 300.0f));
+		SpriteRenderer* logoSr = logo->AddComponent<SpriteRenderer>();
+		logoSr->SetSize(Vector2(1.0f, 1.0f));
+
+		graphics::Texture* logoTexture = Resources::Find<graphics::Texture>(L"Logo");
+		logoSr->SetTexture(logoTexture);
+
+
 		// 배경 구름1
 		GameObject* cloud1 = object::Instantiate<GameObject>(enums::eLayerType::Cloud);
 		cloud1->AddComponent<cloudScript>();
@@ -70,14 +80,7 @@ namespace JB
 		cloud1->GetComponent<Transform>()->SetScale(Vector2(2.0f, 2.0f));
 
 
-		// 타이틀 로고
-		GameObject* logo = object::Instantiate<GameObject>
-			(enums::eLayerType::Logo, Vector2(440.0f, 200.0f));
-		SpriteRenderer* bgSr = logo->AddComponent<SpriteRenderer>();
-		bgSr->SetSize(Vector2(1.0f, 1.0f));
-
-		graphics::Texture* logoTexture = Resources::Find<graphics::Texture>(L"Logo");
-		bgSr->SetTexture(logoTexture);
+		
 
 		//  게임 오브젝트 생성 후에 레이어와 게임 오브젝트들의 init함수를 호출
 		Scene::Initialize();
