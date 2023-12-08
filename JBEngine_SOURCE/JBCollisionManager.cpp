@@ -3,10 +3,12 @@
 #include "JBSceneManager.h"
 #include "JBGameObject.h"
 #include "JBCollider.h"
+#include "JBTransform.h"
 
 namespace JB
 {
 	std::bitset<(UINT)eLayerType::Max> CollisionManager::mCollisionLayerMatrix[(UINT)eLayerType::Max] = {};
+	std::unordered_map<UINT64, bool> CollisionManager::mCollisionMap = {};
 
 	void CollisionManager::Initialize()
 	{
@@ -87,6 +89,70 @@ namespace JB
 
 	void CollisionManager::ColliderCollision(Collider* left, Collider* right)
 	{
-		// 충돌체크 로직 작성.
+		// 충돌체크 로직
+		// 두 충돌체 번호로 가져온 ID 확인하여 CollisionID 세팅
+		CollisionID id = {};
+		id.left = left->GetID();
+		id.right = right->GetID();
+
+		// 이전 충돌 정보를 검색한다. 만약에 충돌 정보가 없는 상태라면 충돌정보를 생성해준다.
+
+		auto iter = mCollisionMap.find(id.id);
+		if (iter == mCollisionMap.end())
+		{
+			mCollisionMap.insert(std::make_pair(id.id, false));
+			iter = mCollisionMap.find(id.id);
+		}
+
+		// 충돌 체크를 해준다.
+		if (Intersect(left, right))
+		{
+			// 최초 충돌
+			if (iter->second == false)
+			{
+				left->OnCollisionEnter(right);
+				right->OnCollisionEnter(left);
+				iter->second = true;
+			}
+			// 이미 충돌중
+			else
+			{
+				left->OnCollisionStay(right);
+				right->OnCollisionStay(left);
+			}
+
+		}
+		else
+		{
+			// 충돌 X
+			if (iter->second == true)
+			{
+				left->OnCollisionExit(right);
+				right->OnCollisionExit(left);
+
+				iter->second = false;
+			}
+		}
+	}
+	bool CollisionManager::Intersect(Collider* left, Collider* right)
+	{
+		Transform* leftTr = left->GetOwner()->GetComponent<Transform>();
+		Transform* rightTr = right->GetOwner()->GetComponent<Transform>();
+
+		Vector2 leftPos = leftTr->GetPosition() + left->GetOffset();
+		Vector2 rightPos = rightTr->GetPosition() + right->GetOffset();
+
+		// size 1,1 일 때 기본 크기가 100픽셀
+		Vector2 leftSize = left->GetSize() * 100.0f;
+		Vector2 rightSize = right->GetSize() * 100.0f;
+
+		// AABB 충돌
+		if (fabs(leftPos.x - rightPos.x) < fabs(leftSize.x / 2.0f + rightSize.x / 2.0f)
+			&& fabs(leftPos.y - rightPos.y) < fabs(leftSize.y / 2.0f + rightSize.y / 2.0f))
+		{
+			return true;
+		}
+
+		return false;
 	}
 }

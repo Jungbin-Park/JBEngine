@@ -1,6 +1,7 @@
 #pragma once
 #include "CommonInclude.h"
 #include "JBComponent.h"
+#include "JBCollider.h"
 
 namespace JB::object
 {

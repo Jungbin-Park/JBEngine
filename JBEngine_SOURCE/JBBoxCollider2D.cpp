@@ -36,8 +36,8 @@ namespace JB
 		Rectangle(hdc 
 			, pos.x + offset.x 
 			, pos.y + offset.y 
-			, pos.x + offset.x + 45
-			, pos.y + offset.y + 50);
+			, pos.x + offset.x + 45 * GetSize().x
+			, pos.y + offset.y + 50 * GetSize().y);
 
 		SelectObject(hdc, oldBrush);
 		SelectObject(hdc, oldPen);

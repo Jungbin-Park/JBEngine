@@ -32,13 +32,24 @@ namespace JB
 		renderer::mainCamera = cameraComp;
 
 		// 타이틀 배경
-		mBackground = object::Instantiate<Player>(enums::eLayerType::BackGround /*Vector2(100.0f, 100.0f)*/);
-		SpriteRenderer* sr = mBackground->AddComponent<SpriteRenderer>();
-		sr->SetSize(Vector2(2.0f, 2.0f));
-		//mBackground->AddComponent<PlayerScript>();
+		//mBackground = object::Instantiate<Player>(enums::eLayerType::BackGround /*Vector2(100.0f, 100.0f)*/);
+		//SpriteRenderer* sr = mBackground->AddComponent<SpriteRenderer>();
+		//sr->SetSize(Vector2(2.0f, 2.0f));
+		////mBackground->AddComponent<PlayerScript>();
 
-		graphics::Texture* backgroundTexture = Resources::Find<graphics::Texture>(L"BG");
-		sr->SetTexture(backgroundTexture);
+		//graphics::Texture* backgroundTexture = Resources::Find<graphics::Texture>(L"BG");
+		//sr->SetTexture(backgroundTexture);
+
+
+		/// 배경화면
+		GameObject* titleBg = object::Instantiate<GameObject>
+			(enums::eLayerType::BackGround);
+		SpriteRenderer* titleBgSr = titleBg->AddComponent<SpriteRenderer>();
+		titleBgSr->SetSize(Vector2(2.0f, 2.0f));
+
+		graphics::Texture* titleTexture = Resources::Find<graphics::Texture>(L"BG");
+		titleBgSr->SetTexture(titleTexture);
+
 
 		// 배경 구름1
 		GameObject* cloud1 = object::Instantiate<GameObject>(enums::eLayerType::Cloud);
@@ -65,7 +76,7 @@ namespace JB
 		SpriteRenderer* bgSr = logo->AddComponent<SpriteRenderer>();
 		bgSr->SetSize(Vector2(1.0f, 1.0f));
 
-		graphics::Texture* logoTexture = Resources::Find<graphics::Texture>(L"LOGO");
+		graphics::Texture* logoTexture = Resources::Find<graphics::Texture>(L"Logo");
 		bgSr->SetTexture(logoTexture);
 
 		//  게임 오브젝트 생성 후에 레이어와 게임 오브젝트들의 init함수를 호출
