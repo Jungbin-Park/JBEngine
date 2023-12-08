@@ -70,6 +70,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)JBBoxCollider2D.cpp">
       <Filter>Component\Collider</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)JBCollisionManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)JBComponent.h">
@@ -153,6 +154,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)JBBoxCollider2D.h">
       <Filter>Component\Collider</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)JBCollisionManager.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Component">

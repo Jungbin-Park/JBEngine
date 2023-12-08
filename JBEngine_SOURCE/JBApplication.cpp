@@ -3,7 +3,7 @@
 #include "JBTime.h"
 #include "JBSceneManager.h"
 #include "JBResources.h"
-
+#include "JBCollisionManager.h"
 
 namespace JB
 {
@@ -28,6 +28,7 @@ namespace JB
 		createBuffer(width, height);
 		initializeEtc();
 
+		CollisionManager::Initialize();
 		SceneManager::Initialize();
 	}
 
@@ -45,11 +46,13 @@ namespace JB
 		Input::Update();
 		Time::Update();
 
+		CollisionManager::Update();
 		SceneManager::Update();
 	}
 
 	void Application::LateUpdate()
 	{
+		CollisionManager::LateUpdate();
 		SceneManager::LateUpdate();
 	}
 
@@ -58,7 +61,7 @@ namespace JB
 		clearRenderTarget();
 
 		Time::Render(mBackHdc);
-
+		CollisionManager::Render(mBackHdc);
 		SceneManager::Render(mBackHdc);
 
 		copyRenderTarget(mBackHdc, mHdc);

@@ -16,6 +16,7 @@
 #include "JBCat.h"
 #include "JBCatScript.h"
 #include "JBBoxCollider2D.h"
+#include "JBCollisionManager.h"
 
 namespace JB
 {
@@ -28,6 +29,8 @@ namespace JB
 
 	void PlayScene::Initialize()
 	{
+		CollisionManager::CollisionLayerCheck(eLayerType::Player, eLayerType::Animal, true);
+
 		/// Ä«¸Þ¶ó
 		GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::None, Vector2(640.0f, 360.0f));
 		Camera* cameraComp = camera->AddComponent<Camera>();
