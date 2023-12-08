@@ -5,8 +5,9 @@ namespace JB::enums
 	enum class eComponentType
 	{
 		Transform,
-		SpriteRenderer,
+		Collider,
 		Script,
+		SpriteRenderer,
 		Animator,
 		Camera,
 		End,

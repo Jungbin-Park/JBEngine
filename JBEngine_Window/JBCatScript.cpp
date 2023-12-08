@@ -30,7 +30,6 @@ namespace JB
 			object::Destroy(GetOwner());
 		}*/
 
-
 		if (mAnimator == nullptr)
 		{
 			mAnimator = GetOwner()->GetComponent<Animator>();

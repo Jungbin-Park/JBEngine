@@ -61,6 +61,15 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)JBAnimator.cpp">
       <Filter>Component</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)JBCollider.cpp">
+      <Filter>Component\Collider</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)JBCircleCollider2D.cpp">
+      <Filter>Component\Collider</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)JBBoxCollider2D.cpp">
+      <Filter>Component\Collider</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)JBComponent.h">
@@ -135,6 +144,15 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)JBAnimator.h">
       <Filter>Component</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)JBCollider.h">
+      <Filter>Component\Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)JBCircleCollider2D.h">
+      <Filter>Component\Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)JBBoxCollider2D.h">
+      <Filter>Component\Collider</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Component">
@@ -178,6 +196,9 @@
     </Filter>
     <Filter Include="Renderer">
       <UniqueIdentifier>{4d538b69-6bb8-4e4e-a412-763fe34f80d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Collider">
+      <UniqueIdentifier>{92ec24fa-64b7-4cc7-807a-d50be5f8999a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

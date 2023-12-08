@@ -9,9 +9,6 @@
 #include <map>	
 #include <functional>
 #include <filesystem>
-#include <math.h>
-
-#include "JBMath.h"
 
 #include<mmsystem.h>
 #include <dinput.h>
@@ -22,5 +19,6 @@
 #pragma comment(lib, "gdiplus.lib")
 
 #include "JBEnums.h"
+#include "JBMath.h"
 
 //#pragma comment(lib, "dsound.lib");

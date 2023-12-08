@@ -15,6 +15,7 @@
 #include "JBAnimator.h"
 #include "JBCat.h"
 #include "JBCatScript.h"
+#include "JBBoxCollider2D.h"
 
 namespace JB
 {
@@ -35,6 +36,9 @@ namespace JB
 		/// 플레이어
 		mPlayer = object::Instantiate<Player>(enums::eLayerType::Player /*Vector2(100.0f, 100.0f)*/);
 		PlayerScript* plScript = mPlayer->AddComponent<PlayerScript>();
+
+		BoxCollider2D* collider = mPlayer->AddComponent<BoxCollider2D>();
+		collider->SetOffset(Vector2(-85.0f, -85.0f));
 
 		graphics::Texture* playerTexture = Resources::Find<graphics::Texture>(L"Player");
 		Animator* playerAnimator = mPlayer->AddComponent<Animator>();
@@ -71,6 +75,11 @@ namespace JB
 
 		graphics::Texture* catTex = Resources::Find<graphics::Texture>(L"Cat");
 		Animator* catAnimator = cat->AddComponent<Animator>();
+
+		BoxCollider2D* boxCatCollider = cat->AddComponent<BoxCollider2D>();
+
+		boxCatCollider->SetOffset(Vector2(0.0f, 0.0f));
+
 		catAnimator->CreateAnimation(L"DownWalk", catTex
 			, Vector2(0.0f, 0.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
 		catAnimator->CreateAnimation(L"RightWalk", catTex
@@ -87,6 +96,7 @@ namespace JB
 			, Vector2(0.0f, 192.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
 
 		catAnimator->PlayAnimation(L"SitDown", false);
+
 		cat->GetComponent<Transform>()->SetPosition(Vector2(200.0f, 200.0f));
 		cat->GetComponent<Transform>()->SetScale(Vector2(2.0f, 2.0f));
 

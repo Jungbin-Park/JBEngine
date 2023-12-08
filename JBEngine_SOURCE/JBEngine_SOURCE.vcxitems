@@ -18,7 +18,10 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)JBAnimation.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JBAnimator.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JBApplication.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JBBoxCollider2D.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JBCamera.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JBCircleCollider2D.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JBCollider.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JBComponent.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JBEntity.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JBEnums.h" />
@@ -43,7 +46,10 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)JBAnimation.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JBAnimator.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JBApplication.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JBBoxCollider2D.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JBCamera.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JBCircleCollider2D.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JBCollider.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JBComponent.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JBEntity.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JBGameObject.cpp" />

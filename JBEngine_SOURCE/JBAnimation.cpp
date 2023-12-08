@@ -100,6 +100,8 @@ namespace JB
 					, sprite.size.y
 					, RGB(255, 0, 255));
 			}
+
+			//Rectangle(hdc, pos.x, pos.y, pos.x + 5, pos.y + 5);
 			
 		}
 		else if (type == graphics::Texture::eTextureType::Png)
