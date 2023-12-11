@@ -31,15 +31,6 @@ namespace JB
 		Camera* cameraComp = camera->AddComponent<Camera>();
 		renderer::mainCamera = cameraComp;
 
-		// 타이틀 배경
-		//mBackground = object::Instantiate<Player>(enums::eLayerType::BackGround /*Vector2(100.0f, 100.0f)*/);
-		//SpriteRenderer* sr = mBackground->AddComponent<SpriteRenderer>();
-		//sr->SetSize(Vector2(2.0f, 2.0f));
-		////mBackground->AddComponent<PlayerScript>();
-
-		//graphics::Texture* backgroundTexture = Resources::Find<graphics::Texture>(L"BG");
-		//sr->SetTexture(backgroundTexture);
-
 
 		/// 배경화면
 		GameObject* titleBg = object::Instantiate<GameObject>
@@ -53,12 +44,50 @@ namespace JB
 
 		// 타이틀 로고
 		GameObject* logo = object::Instantiate<GameObject>
-			(enums::eLayerType::Logo, Vector2(300.0f, 300.0f));
+			(enums::eLayerType::UI, Vector2(340.0f, 150.0f));
 		SpriteRenderer* logoSr = logo->AddComponent<SpriteRenderer>();
-		logoSr->SetSize(Vector2(1.0f, 1.0f));
+		logoSr->SetSize(Vector2(1.5f, 1.5f));
 
 		graphics::Texture* logoTexture = Resources::Find<graphics::Texture>(L"Logo");
 		logoSr->SetTexture(logoTexture);
+
+		// New 버튼
+		GameObject* newButton = object::Instantiate<GameObject>(enums::eLayerType::UI);
+
+		graphics::Texture* buttonTexture = Resources::Find<graphics::Texture>(L"Buttons");
+		Animator* newButtonAnimator = newButton->AddComponent<Animator>();
+		newButtonAnimator->CreateAnimation(L"NewButton", buttonTexture
+			, Vector2(0.0f, 0.0f), Vector2(74.0f, 58.0f), Vector2::Zero, 1, 1.0f);
+
+		newButtonAnimator->PlayAnimation(L"NewButton", false);
+
+		newButton->GetComponent<Transform>()->SetPosition(Vector2(400.0f, 500.0f));
+		newButton->GetComponent<Transform>()->SetScale(Vector2(1.5f, 1.5f));
+
+		// Load 버튼
+		GameObject* loadButton = object::Instantiate<GameObject>(enums::eLayerType::UI);
+
+		Animator* loadButtonAnimator = loadButton->AddComponent<Animator>();
+		loadButtonAnimator->CreateAnimation(L"LoadButton", buttonTexture
+			, Vector2(74.0f, 0.0f), Vector2(74.0f, 58.0f), Vector2::Zero, 1, 1.0f);
+
+		loadButtonAnimator->PlayAnimation(L"LoadButton", false);
+
+		loadButton->GetComponent<Transform>()->SetPosition(Vector2(615.0f, 500.0f));
+		loadButton->GetComponent<Transform>()->SetScale(Vector2(1.5f, 1.5f));
+
+		// Exit 버튼
+		GameObject* exitButton = object::Instantiate<GameObject>(enums::eLayerType::UI);
+
+		Animator* exitButtonAnimator = exitButton->AddComponent<Animator>();
+		exitButtonAnimator->CreateAnimation(L"ExitButton", buttonTexture
+			, Vector2(222.0f, 0.0f), Vector2(74.0f, 58.0f), Vector2::Zero, 1, 1.0f);
+
+		exitButtonAnimator->PlayAnimation(L"ExitButton", false);
+
+		exitButton->GetComponent<Transform>()->SetPosition(Vector2(830.0f, 500.0f));
+		exitButton->GetComponent<Transform>()->SetScale(Vector2(1.5f, 1.5f));
+
 
 
 		// 배경 구름1
@@ -79,9 +108,7 @@ namespace JB
 		cloud1->GetComponent<Transform>()->SetPosition(Vector2(100.0f, 100.0f));
 		cloud1->GetComponent<Transform>()->SetScale(Vector2(2.0f, 2.0f));
 
-
 		
-
 		//  게임 오브젝트 생성 후에 레이어와 게임 오브젝트들의 init함수를 호출
 		Scene::Initialize();
 	}

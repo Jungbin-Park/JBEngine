@@ -15,6 +15,7 @@ namespace JB
 		'Z', 'X', 'C', 'V', 'B', 'N', 'M',
 		VK_LEFT, VK_RIGHT, VK_DOWN, VK_UP,
 		VK_LBUTTON, VK_MBUTTON, VK_RBUTTON,
+		'1', '2', '3', '4', '5',
 	};
 
 	void Input::Initialize()

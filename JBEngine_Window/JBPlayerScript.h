@@ -13,6 +13,25 @@ namespace JB
 			Sleep,
 			GiveWater,
 			Attack,
+			Axe,
+			Pick,
+		};
+
+		enum class eEquipment
+		{
+			None,
+			Sword,
+			Axe,
+			WateringCan,
+			Pick,
+		};
+
+		enum class eDirection
+		{
+			Left,
+			Right,
+			Down,
+			Up,
 		};
 
 		PlayerScript();
@@ -33,10 +52,15 @@ namespace JB
 		void idle();
 		void move();
 		void giveWater();
+		void axe();
+		void attack();
+		void pick();
 
 	private:
 		eState mState;
 		class Animator* mAnimator;
+		eDirection mDirection;
+		eEquipment mEquipment;
 	};
 }
 

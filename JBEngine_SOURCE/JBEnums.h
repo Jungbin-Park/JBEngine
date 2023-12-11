@@ -18,12 +18,12 @@ namespace JB::enums
 		None,
 		BackGround,
 		Cloud,
-		Logo,
 		//Tree
 		//character
 		Animal,
 		Player,
 		Particle,
+		UI,
 		Max = 16,
 	};
 

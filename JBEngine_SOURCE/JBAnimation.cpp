@@ -142,25 +142,53 @@ namespace JB
 
 		UINT a = spriteSheet->GetWidth();
 		int switchingIndex = 0;
-		for (size_t i = 0; i < spriteLength; i++)
+		//if (spriteLength < 0)
+		//{
+		//	spriteLength = fabs(spriteLength);
+		//	//switchingIndex = (int)spriteLength;
+		//	for (size_t i = spriteLength; i > 0; i--)
+		//	{
+		//		Sprite sprite = {};
+		//		sprite.leftTop.x = leftTop.x + (size.x * (i - switchingIndex));
+		//		sprite.leftTop.y = leftTop.y;
+
+		//		if (sprite.leftTop.x >= spriteSheet->GetWidth())
+		//		{
+		//			switchingIndex = i;
+		//			sprite.leftTop.x = 2750.0f;
+		//			leftTop.x = 2750.0f;
+		//			sprite.leftTop.y -= size.y;
+		//			leftTop.y -= size.y;
+		//		}
+		//		sprite.size = size;
+		//		sprite.offset = offset;
+		//		sprite.duration = duration;
+
+		//		mAnimationSheet.push_back(sprite);
+		//	}
+		//}
+		//else
 		{
-			Sprite sprite = {};
-			sprite.leftTop.x = leftTop.x + (size.x * (i - switchingIndex));
-			sprite.leftTop.y = leftTop.y;
-
-			if (sprite.leftTop.x >= spriteSheet->GetWidth())
+			for (size_t i = 0; i < spriteLength; i++)
 			{
-				switchingIndex = i;
-				sprite.leftTop.x = 0;
-				leftTop.x = 0;
-				sprite.leftTop.y += size.y;
-				leftTop.y += size.y;
-			}
-			sprite.size = size;
-			sprite.offset = offset;
-			sprite.duration = duration;
+				Sprite sprite = {};
+				sprite.leftTop.x = leftTop.x + (size.x * (i - switchingIndex));
+				sprite.leftTop.y = leftTop.y;
 
-			mAnimationSheet.push_back(sprite);
+				if (sprite.leftTop.x >= spriteSheet->GetWidth())
+				{
+					switchingIndex = i;
+					sprite.leftTop.x = 0.0f;
+					leftTop.x = 0.0f;
+					sprite.leftTop.y += size.y;
+					leftTop.y += size.y;
+				}
+				sprite.size = size;
+				sprite.offset = offset;
+				sprite.duration = duration;
+
+				mAnimationSheet.push_back(sprite);
+			}
 		}
 	}
 	void Animation::Reset()
