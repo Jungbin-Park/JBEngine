@@ -32,6 +32,9 @@ namespace JB
 		static bool Intersect(Collider* left, Collider* right);
 
 	private:
+
+
+	private:
 		static std::bitset<(UINT)eLayerType::Max> mCollisionLayerMatrix[(UINT)eLayerType::Max];
 
 		static std::unordered_map<UINT64, bool> mCollisionMap;

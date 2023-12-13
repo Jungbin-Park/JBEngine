@@ -39,6 +39,9 @@
     <ClInclude Include="JBcloudScript.h">
       <Filter>Scripts</Filter>
     </ClInclude>
+    <ClInclude Include="JBMineScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="JBPlayScene.cpp">
@@ -64,6 +67,9 @@
     </ClCompile>
     <ClCompile Include="JBcloudScript.cpp">
       <Filter>Scripts</Filter>
+    </ClCompile>
+    <ClCompile Include="JBMineScene.cpp">
+      <Filter>Scenes</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

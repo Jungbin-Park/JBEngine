@@ -15,6 +15,7 @@ namespace JB
 			Attack,
 			Axe,
 			Pick,
+			Sickle,
 		};
 
 		enum class eEquipment
@@ -24,6 +25,7 @@ namespace JB
 			Axe,
 			WateringCan,
 			Pick,
+			Sickle,
 		};
 
 		enum class eDirection
@@ -55,6 +57,7 @@ namespace JB
 		void axe();
 		void attack();
 		void pick();
+		void sickle();
 
 	private:
 		eState mState;

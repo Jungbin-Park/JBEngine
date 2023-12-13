@@ -142,32 +142,6 @@ namespace JB
 
 		UINT a = spriteSheet->GetWidth();
 		int switchingIndex = 0;
-		//if (spriteLength < 0)
-		//{
-		//	spriteLength = fabs(spriteLength);
-		//	//switchingIndex = (int)spriteLength;
-		//	for (size_t i = spriteLength; i > 0; i--)
-		//	{
-		//		Sprite sprite = {};
-		//		sprite.leftTop.x = leftTop.x + (size.x * (i - switchingIndex));
-		//		sprite.leftTop.y = leftTop.y;
-
-		//		if (sprite.leftTop.x >= spriteSheet->GetWidth())
-		//		{
-		//			switchingIndex = i;
-		//			sprite.leftTop.x = 2750.0f;
-		//			leftTop.x = 2750.0f;
-		//			sprite.leftTop.y -= size.y;
-		//			leftTop.y -= size.y;
-		//		}
-		//		sprite.size = size;
-		//		sprite.offset = offset;
-		//		sprite.duration = duration;
-
-		//		mAnimationSheet.push_back(sprite);
-		//	}
-		//}
-		//else
 		{
 			for (size_t i = 0; i < spriteLength; i++)
 			{

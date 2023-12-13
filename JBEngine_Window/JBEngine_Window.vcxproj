@@ -139,6 +139,7 @@
     <ClInclude Include="JBcloudScript.h" />
     <ClInclude Include="JBFarmhouseScene.h" />
     <ClInclude Include="JBLoadScene.h" />
+    <ClInclude Include="JBMineScene.h" />
     <ClInclude Include="JBPlayer.h" />
     <ClInclude Include="JBPlayerScript.h" />
     <ClInclude Include="JBPlayScene.h" />
@@ -149,6 +150,7 @@
     <ClCompile Include="JBCatScript.cpp" />
     <ClCompile Include="JBcloudScript.cpp" />
     <ClCompile Include="JBFarmhouseScene.cpp" />
+    <ClCompile Include="JBMineScene.cpp" />
     <ClCompile Include="JBPlayer.cpp" />
     <ClCompile Include="JBPlayerScript.cpp" />
     <ClCompile Include="JBPlayScene.cpp" />

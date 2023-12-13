@@ -29,8 +29,8 @@ namespace JB
 	{
 		// 카메라
 		GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::None, Vector2(640.0f, 360.0f));
-		Camera* cameraComp = camera->AddComponent<Camera>();
-		renderer::mainCamera = cameraComp;
+		mCameraComp = camera->AddComponent<Camera>();
+		renderer::mainCamera = mCameraComp;
 
 		/// 플레이어
 		mPlayer = object::Instantiate<Player>(enums::eLayerType::Player /*Vector2(100.0f, 100.0f)*/);
@@ -59,9 +59,9 @@ namespace JB
 		playerAnimator->GetCompleteEvent(L"FrontGiveWater") = std::bind(&PlayerScript::WaterEvent, plScript);
 
 		mPlayer->GetComponent<Transform>()->SetPosition(Vector2(100.0f, 100.0f));
-		mPlayer->GetComponent<Transform>()->SetScale(Vector2(0.5f, 0.5f));
+		mPlayer->GetComponent<Transform>()->SetScale(Vector2(1.0f, 1.0f));
 
-		cameraComp->SetTarget(mPlayer);
+		mCameraComp->SetTarget(mPlayer);
 
 		// 배경
 		GameObject* farmhouseBg = object::Instantiate<GameObject>
@@ -87,7 +87,7 @@ namespace JB
 
 		if (Input::GetKeyDown(eKeyCode::N))
 		{
-			SceneManager::LoadScene(L"TitleScene");
+			SceneManager::LoadScene(L"MineScene");
 		}
 	}
 
@@ -100,6 +100,7 @@ namespace JB
 	}
 	void FarmhouseScene::OnEnter()
 	{
+		renderer::mainCamera = mCameraComp;
 	}
 	void FarmhouseScene::OnExit()
 	{

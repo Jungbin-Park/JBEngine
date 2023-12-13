@@ -45,7 +45,6 @@ void JB::cloudScript::move()
 
 void JB::cloudScript::translate(Transform* tr)
 {
-	
 	Vector2 pos = tr->GetPosition();
 	if (pos.x > 1400)
 	{

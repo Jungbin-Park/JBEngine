@@ -5,7 +5,6 @@ namespace JB::renderer
 {
 	extern Camera* mainCamera;
 
-	
 }
 
 

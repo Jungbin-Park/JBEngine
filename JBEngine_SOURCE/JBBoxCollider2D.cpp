@@ -1,11 +1,13 @@
 #include "JBBoxCollider2D.h"
 #include "JBTransform.h"
 #include "JBGameObject.h"
+#include "JBRenderer.h"
+#include "JBCamera.h"
 
 namespace JB
 {
 	BoxCollider2D::BoxCollider2D()
-		: Collider()
+		: Collider(enums::eColliderType::Rect2D)
 	{
 	}
 	BoxCollider2D::~BoxCollider2D()
@@ -25,6 +27,9 @@ namespace JB
 		Transform* tr = GetOwner()->GetComponent<Transform>();
 		Vector2 pos = tr->GetPosition();
 
+		if (renderer::mainCamera)
+			pos = renderer::mainCamera->CalculatePosition(pos);
+
 		Vector2 offset = GetOffset();
 
 		HBRUSH transparentBrush = (HBRUSH)GetStockObject(NULL_BRUSH);
@@ -36,8 +41,8 @@ namespace JB
 		Rectangle(hdc 
 			, pos.x + offset.x 
 			, pos.y + offset.y 
-			, pos.x + offset.x + 45 * GetSize().x
-			, pos.y + offset.y + 50 * GetSize().y);
+			, pos.x + offset.x + 100 * GetSize().x
+			, pos.y + offset.y + 100 * GetSize().y);
 
 		SelectObject(hdc, oldBrush);
 		SelectObject(hdc, oldPen);

@@ -49,6 +49,9 @@ namespace JB
 		case JB::PlayerScript::eState::Pick:
 			pick();
 			break;
+		case JB::PlayerScript::eState::Sickle:
+			sickle();
+			break;
 		default:
 			break;
 		}
@@ -131,7 +134,7 @@ namespace JB
 		}
 		if (Input::GetKey(eKeyCode::Num5))
 		{
-			mEquipment = PlayerScript::eEquipment::None;
+			mEquipment = PlayerScript::eEquipment::Sickle;
 		}
 		if (Input::GetKey(eKeyCode::LButton))
 		{
@@ -227,6 +230,28 @@ namespace JB
 				}
 				break;
 			}
+			case JB::PlayerScript::eEquipment::Sickle:
+			{
+				mState = PlayerScript::eState::Sickle;
+				switch (mDirection)
+				{
+				case JB::PlayerScript::eDirection::Left:
+					mAnimator->PlayAnimation(L"LeftSickle", false);
+					break;
+				case JB::PlayerScript::eDirection::Right:
+					mAnimator->PlayAnimation(L"RightSickle", false);
+					break;
+				case JB::PlayerScript::eDirection::Down:
+					mAnimator->PlayAnimation(L"DownSickle", false);
+					break;
+				case JB::PlayerScript::eDirection::Up:
+					mAnimator->PlayAnimation(L"UpSickle", false);
+					break;
+				default:
+					break;
+				}
+				break;
+			}
 			default:
 				break;
 			}
@@ -310,6 +335,14 @@ namespace JB
 	}
 
 	void PlayerScript::pick()
+	{
+		if (mAnimator->IsComplete())
+		{
+			mState = eState::Idle;
+		}
+	}
+
+	void PlayerScript::sickle()
 	{
 		if (mAnimator->IsComplete())
 		{

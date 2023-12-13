@@ -33,17 +33,32 @@ namespace JB
 
 		/// 카메라
 		GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::None, Vector2(640.0f, 360.0f));
-		Camera* cameraComp = camera->AddComponent<Camera>();
-		renderer::mainCamera = cameraComp;
+		mCameraComp = camera->AddComponent<Camera>();
+		renderer::mainCamera = mCameraComp;
+
+
+		/// 배경화면
+		GameObject* town = object::Instantiate<GameObject>
+			(enums::eLayerType::BackGround);
+		SpriteRenderer* townSr = town->AddComponent<SpriteRenderer>();
+		townSr->SetSize(Vector2(3.0f, 3.0f));
+
+		graphics::Texture* townTexture = Resources::Find<graphics::Texture>(L"Town");
+		townSr->SetTexture(townTexture);
+
 
 		/// 플레이어
 		mPlayer = object::Instantiate<Player>(enums::eLayerType::Player /*Vector2(100.0f, 100.0f)*/);
 		PlayerScript* plScript = mPlayer->AddComponent<PlayerScript>();
 
+		// Collider
 		BoxCollider2D* collider = mPlayer->AddComponent<BoxCollider2D>();
-		collider->SetOffset(Vector2(-85.0f, -85.0f));
+		//CircleCollider2D* circleCollider = mPlayer->AddComponent<CircleCollider2D>();
+		collider->SetOffset(Vector2(-50.0f, -50.0f));
 
 		graphics::Texture* playerTexture = Resources::Find<graphics::Texture>(L"Player");
+		graphics::Texture* playerPickTexture = Resources::Find<graphics::Texture>(L"PlayerPick");
+		graphics::Texture* playerDownWalkTexture = Resources::Find<graphics::Texture>(L"PlayerDownWalk");
 		Animator* playerAnimator = mPlayer->AddComponent<Animator>();
 
 		// Idle
@@ -66,9 +81,9 @@ namespace JB
 			, Vector2(0.0f, 0.0f), Vector2(250.0f, 250.0f), Vector2::Zero, 6, 0.1f);
 		// GiveWater
 		playerAnimator->CreateAnimation(L"UpGiveWater", playerTexture
-			, Vector2(1250.0f, 2250.0f), Vector2(250.0f, 250.0f), Vector2::Zero, 3, 0.1f);
+			, Vector2(1250.0f, 2250.0f), Vector2(250.0f, 250.0f), Vector2::Zero, 5, 0.1f);
 		playerAnimator->CreateAnimation(L"DownGiveWater", playerTexture
-			, Vector2(0.0f, 2000.0f), Vector2(250.0f, 250.0f), Vector2::Zero, 12, 0.1f);
+			, Vector2(0.0f, 2000.0f), Vector2(250.0f, 250.0f), Vector2::Zero, 12, 0.05f);
 		playerAnimator->CreateAnimation(L"LeftGiveWater", playerTexture
 			, Vector2(0.0f, 2250.0f), Vector2(250.0f, 250.0f), Vector2::Zero, 5, 0.1f);
 		playerAnimator->CreateAnimation(L"RightGiveWater", playerTexture
@@ -96,10 +111,19 @@ namespace JB
 			, Vector2(1750.0f, 3500.0f), Vector2(250.0f, 250.0f), Vector2::Zero, 5, 0.1f);
 		playerAnimator->CreateAnimation(L"DownPick", playerTexture
 			, Vector2(0.0f, 3500.0f), Vector2(250.0f, 250.0f), Vector2::Zero, 7, 0.1f);
-		playerAnimator->CreateAnimation(L"LeftPick", playerTexture
-			, Vector2(1250.0f, 3750.0f), Vector2(250.0f, 250.0f), Vector2::Zero, 5, 0.1f);
+		playerAnimator->CreateAnimation(L"LeftPick", playerPickTexture
+			, Vector2(0.0f, 250.0f), Vector2(250.0f, 250.0f), Vector2::Zero, 5, 0.1f);
 		playerAnimator->CreateAnimation(L"RightPick", playerTexture
 			, Vector2(0.0f, 3750.0f), Vector2(250.0f, 250.0f), Vector2::Zero, 5, 0.1f);
+		// Sickle
+		playerAnimator->CreateAnimation(L"UpSickle", playerTexture
+			, Vector2(0.0f, 1750.0f), Vector2(250.0f, 250.0f), Vector2::Zero, 6, 0.1f);
+		playerAnimator->CreateAnimation(L"DownSickle", playerTexture
+			, Vector2(1250.0f, 1250.0f), Vector2(250.0f, 250.0f), Vector2::Zero, 6, 0.1f);
+		playerAnimator->CreateAnimation(L"LeftSickle", playerTexture
+			, Vector2(1500.0f, 1500.0f), Vector2(250.0f, 250.0f), Vector2::Zero, 6, 0.1f);
+		playerAnimator->CreateAnimation(L"RightSickle", playerTexture
+			, Vector2(0.0f, 1500.0f), Vector2(250.0f, 250.0f), Vector2::Zero, 6, 0.1f);
 
 
 		playerAnimator->PlayAnimation(L"DownIdle", false);
@@ -108,9 +132,11 @@ namespace JB
 		playerAnimator->GetCompleteEvent(L"DownGiveWater") = std::bind(&PlayerScript::WaterEvent, plScript);
 
 		mPlayer->GetComponent<Transform>()->SetPosition(Vector2(100.0f, 100.0f));
-		mPlayer->GetComponent<Transform>()->SetScale(Vector2(0.5f, 0.5f));
+		mPlayer->GetComponent<Transform>()->SetScale(Vector2(1.0f, 1.0f));
 
-		cameraComp->SetTarget(mPlayer);
+
+		// 카메라 타겟 고정
+		mCameraComp->SetTarget(mPlayer);
 
 		//sr->SetTexture(backgroundTexture);
 
@@ -145,14 +171,7 @@ namespace JB
 		cat->GetComponent<Transform>()->SetPosition(Vector2(200.0f, 200.0f));
 		cat->GetComponent<Transform>()->SetScale(Vector2(2.0f, 2.0f));
 
-		/// 배경화면
-		GameObject* town = object::Instantiate<GameObject>
-			(enums::eLayerType::BackGround);
-		SpriteRenderer* townSr = town->AddComponent<SpriteRenderer>();
-		townSr->SetSize(Vector2(2.0f, 2.0f));
-
-		graphics::Texture* townTexture = Resources::Find<graphics::Texture>(L"Town");
-		townSr->SetTexture(townTexture);
+		
 
 
 		//  게임 오브젝트 생성 후에 레이어와 게임 오브젝트들의 init함수를 호출
@@ -183,7 +202,7 @@ namespace JB
 	}
 	void PlayScene::OnEnter()
 	{
-
+		renderer::mainCamera = mCameraComp;
 	}
 	void PlayScene::OnExit()
 	{
