@@ -131,7 +131,7 @@ namespace JB
 			// 애니메이션 바인딩
 		playerAnimator->GetCompleteEvent(L"DownGiveWater") = std::bind(&PlayerScript::WaterEvent, plScript);
 
-		mPlayer->GetComponent<Transform>()->SetPosition(Vector2(100.0f, 100.0f));
+		mPlayer->GetComponent<Transform>()->SetPosition(Vector2(500.0f, 300.0f));
 		mPlayer->GetComponent<Transform>()->SetScale(Vector2(1.0f, 1.0f));
 
 

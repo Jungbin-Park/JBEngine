@@ -98,15 +98,25 @@ namespace JB
 		Animator* cloudAnimator = cloud1->AddComponent<Animator>();
 		cloudAnimator->CreateAnimation(L"CloudMove1", cloudTexture
 			, Vector2(0.0f, 0.0f), Vector2(132.0f, 60.0f), Vector2::Zero, 1, 2.0f);
-		/*cloudAnimator->CreateAnimation(L"CloudMove2", cloudTexture
-			, Vector2(0.0f, 0.0f), Vector2(132.0f, 60.0f), Vector2::Zero, 1, 0.1f);
-		cloudAnimator->CreateAnimation(L"CloudMove3", cloudTexture
-			, Vector2(0.0f, 0.0f), Vector2(132.0f, 60.0f), Vector2::Zero, 1, 0.1f);*/
 
 		cloudAnimator->PlayAnimation(L"CloudMove1", false);
 
 		cloud1->GetComponent<Transform>()->SetPosition(Vector2(100.0f, 100.0f));
 		cloud1->GetComponent<Transform>()->SetScale(Vector2(2.0f, 2.0f));
+
+		// 배경 구름2
+		GameObject* cloud2 = object::Instantiate<GameObject>(enums::eLayerType::Cloud);
+		cloud2->AddComponent<cloudScript>();
+
+		graphics::Texture* cloud2Texture = Resources::Find<graphics::Texture>(L"Cloud1");
+		Animator* cloud2Animator = cloud2->AddComponent<Animator>();
+		cloud2Animator->CreateAnimation(L"CloudMove2", cloud2Texture
+			, Vector2(0.0f, 0.0f), Vector2(132.0f, 60.0f), Vector2::Zero, 1, 2.0f);
+
+		cloud2Animator->PlayAnimation(L"CloudMove2", false);
+
+		cloud2->GetComponent<Transform>()->SetPosition(Vector2(700.0f, 200.0f));
+		cloud2->GetComponent<Transform>()->SetScale(Vector2(3.0f, 3.0f));
 
 		
 		//  게임 오브젝트 생성 후에 레이어와 게임 오브젝트들의 init함수를 호출

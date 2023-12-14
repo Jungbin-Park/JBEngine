@@ -10,6 +10,7 @@ namespace JB
 		{
 			Idle,
 			Walk,
+			Run,
 			Sleep,
 			GiveWater,
 			Attack,
@@ -58,12 +59,14 @@ namespace JB
 		void attack();
 		void pick();
 		void sickle();
+		void run();
 
 	private:
 		eState mState;
 		class Animator* mAnimator;
 		eDirection mDirection;
 		eEquipment mEquipment;
+		float mSpeed;
 	};
 }
 

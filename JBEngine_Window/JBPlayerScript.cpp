@@ -12,6 +12,7 @@ namespace JB
 		, mAnimator(nullptr)
 		, mDirection(eDirection::Down)
 		, mEquipment(eEquipment::None)
+		, mSpeed(100.0f)
 	{
 	}
 	PlayerScript::~PlayerScript()
@@ -34,6 +35,9 @@ namespace JB
 			break;
 		case JB::PlayerScript::eState::Walk:
 			move();
+			break;
+		case JB::PlayerScript::eState::Run:
+			run();
 			break;
 		case JB::PlayerScript::eState::Sleep:
 			break;
@@ -266,19 +270,24 @@ namespace JB
 
 		if (Input::GetKey(eKeyCode::D))
 		{
-			pos.x += 100.0f * Time::DeltaTime();
+			pos.x += mSpeed * Time::DeltaTime();
 		}
 		if (Input::GetKey(eKeyCode::A))
 		{
-			pos.x -= 100.0f * Time::DeltaTime();
+			pos.x -= mSpeed * Time::DeltaTime();
 		}
 		if (Input::GetKey(eKeyCode::W))
 		{
-			pos.y -= 100.0f * Time::DeltaTime();
+			pos.y -= mSpeed * Time::DeltaTime();
 		}
 		if (Input::GetKey(eKeyCode::S))
 		{
-			pos.y += 100.0f * Time::DeltaTime();
+			pos.y += mSpeed * Time::DeltaTime();
+		}
+		if (Input::GetKeyDown(eKeyCode::Shift))
+		{
+			//mState = eState::Run;
+			mSpeed *= 2.0f;
 		}
 
 		tr->SetPosition(pos);
@@ -306,6 +315,13 @@ namespace JB
 			mDirection = eDirection::Down;
 			mState = PlayerScript::eState::Idle;
 			mAnimator->PlayAnimation(L"Idle", false);
+		}
+		else if (Input::GetKeyUp(eKeyCode::Shift))
+		{
+			mSpeed /= 2.0f;
+			mState = PlayerScript::eState::Idle;
+			mAnimator->PlayAnimation(L"Idle", false);
+			
 		}
 	}
 
@@ -343,6 +359,14 @@ namespace JB
 	}
 
 	void PlayerScript::sickle()
+	{
+		if (mAnimator->IsComplete())
+		{
+			mState = eState::Idle;
+		}
+	}
+
+	void PlayerScript::run()
 	{
 		if (mAnimator->IsComplete())
 		{

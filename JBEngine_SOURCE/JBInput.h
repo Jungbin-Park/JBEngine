@@ -19,6 +19,7 @@ namespace JB
 		Left, Right, Down, Up,
 		LButton, MButton, RButton,
 		Num1, Num2, Num3, Num4, Num5,
+		Shift,
 		End,
 	};
 
