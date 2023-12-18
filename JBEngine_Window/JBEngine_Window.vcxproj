@@ -143,7 +143,9 @@
     <ClInclude Include="JBPlayer.h" />
     <ClInclude Include="JBPlayerScript.h" />
     <ClInclude Include="JBPlayScene.h" />
+    <ClInclude Include="JBTile.h" />
     <ClInclude Include="JBTitleScene.h" />
+    <ClInclude Include="JBToolScene.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="JBCat.cpp" />
@@ -154,7 +156,9 @@
     <ClCompile Include="JBPlayer.cpp" />
     <ClCompile Include="JBPlayerScript.cpp" />
     <ClCompile Include="JBPlayScene.cpp" />
+    <ClCompile Include="JBTile.cpp" />
     <ClCompile Include="JBTitleScene.cpp" />
+    <ClCompile Include="JBToolScene.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

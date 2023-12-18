@@ -42,6 +42,12 @@
     <ClInclude Include="JBMineScene.h">
       <Filter>Scenes</Filter>
     </ClInclude>
+    <ClInclude Include="JBTile.h">
+      <Filter>Contents</Filter>
+    </ClInclude>
+    <ClInclude Include="JBToolScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="JBPlayScene.cpp">
@@ -69,6 +75,12 @@
       <Filter>Scripts</Filter>
     </ClCompile>
     <ClCompile Include="JBMineScene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="JBTile.cpp">
+      <Filter>Contents</Filter>
+    </ClCompile>
+    <ClCompile Include="JBToolScene.cpp">
       <Filter>Scenes</Filter>
     </ClCompile>
   </ItemGroup>

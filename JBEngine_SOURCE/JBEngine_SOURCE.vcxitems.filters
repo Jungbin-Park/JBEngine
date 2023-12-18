@@ -70,12 +70,17 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)JBBoxCollider2D.cpp">
       <Filter>Component\Collider</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)JBCollisionManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JBObject.cpp">
       <Filter>Common</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)JBDontDestroyOnLoad.cpp">
       <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)JBTilemapRenderer.cpp">
+      <Filter>Component\TileMapRenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)JBCollisionManager.cpp">
+      <Filter>Component\Collider</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -160,9 +165,14 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)JBBoxCollider2D.h">
       <Filter>Component\Collider</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)JBCollisionManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JBDontDestroyOnLoad.h">
       <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)JBTilemapRenderer.h">
+      <Filter>Component\TileMapRenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)JBCollisionManager.h">
+      <Filter>Component\Collider</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -210,6 +220,9 @@
     </Filter>
     <Filter Include="Component\Collider">
       <UniqueIdentifier>{92ec24fa-64b7-4cc7-807a-d50be5f8999a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\TileMapRenderer">
+      <UniqueIdentifier>{f47a8402-ac11-41ba-a705-9e5ffa123a42}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

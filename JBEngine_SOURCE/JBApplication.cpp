@@ -84,7 +84,7 @@ namespace JB
 		HBRUSH grayBrush = (HBRUSH)CreateSolidBrush(RGB(128, 128, 128));
 		HBRUSH oldBrush = (HBRUSH)SelectObject(mBackHdc, grayBrush);
 
-		Rectangle(mBackHdc, -1, -1, 1201, 901);
+		Rectangle(mBackHdc, -1, -1, 1281, 721);
 
 		(HBRUSH)SelectObject(mBackHdc, oldBrush);
 		DeleteObject(grayBrush);
@@ -104,8 +104,8 @@ namespace JB
 
 		AdjustWindowRect(&rect, WS_OVERLAPPEDWINDOW, false);
 
-		mWidth = rect.right - rect.left;
-		mHeight = rect.bottom - rect.top;
+		mWidth = width; // rect.right - rect.left;
+		mHeight = height; // rect.bottom - rect.top;
 
 		SetWindowPos(mHwnd, nullptr, 0, 0, mWidth, mHeight, 0);
 		ShowWindow(mHwnd, true);

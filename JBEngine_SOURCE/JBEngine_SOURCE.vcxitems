@@ -40,6 +40,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)JBScript.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JBSpriteRenderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JBTexture.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JBTilemapRenderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JBTime.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JBTransform.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)LoadResources.h" />
@@ -69,6 +70,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)JBScript.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JBSpriteRenderer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JBTexture.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JBTilemapRenderer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JBTime.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JBTransform.cpp" />
   </ItemGroup>

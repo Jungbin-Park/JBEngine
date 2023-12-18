@@ -6,6 +6,9 @@ namespace JB
 {
 	void LoadResources()
 	{
+		// ToolScene
+		Resources::Load<graphics::Texture>(L"SpringFloor", L"C:\\C++\\JBEngine\\Resources\\SpringFloor.bmp");
+
 		// TitleScene
 		Resources::Load<graphics::Texture>(L"BG", L"C:\\C++\\JBEngine\\Resources\\stardewPanorama.png");
 		Resources::Load<graphics::Texture>(L"Logo", L"C:\\C++\\JBEngine\\Resources\\TitleLogo.bmp");
