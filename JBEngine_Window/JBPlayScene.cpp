@@ -49,6 +49,7 @@ namespace JB
 
 		/// 플레이어
 		mPlayer = object::Instantiate<Player>(enums::eLayerType::Player /*Vector2(100.0f, 100.0f)*/);
+		
 		PlayerScript* plScript = mPlayer->AddComponent<PlayerScript>();
 
 		// Collider

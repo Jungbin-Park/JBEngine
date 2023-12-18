@@ -68,7 +68,7 @@ namespace JB
 	{
 		std::vector<GameObject*> deleteObjects = {};
 		findDeadGameObjects(deleteObjects);
-		eraseGameObject();
+		eraseDeadGameObject();
 		deleteGameObjects(deleteObjects);
 	}
 
@@ -78,6 +78,16 @@ namespace JB
 			return;
 		
 		mGameObjects.push_back(gameObject);
+	}
+
+	void Layer::EraseGameObject(GameObject* eraseGameObj)
+	{
+		// std::erase() : iter 넣어줘서 해당 이터레이터와 같은 객체 삭제
+		std::erase_if(mGameObjects,
+			[=](GameObject* gameObj)
+			{
+				return gameObj == eraseGameObj;
+			});
 	}
 
 	void Layer::findDeadGameObjects(OUT std::vector<GameObject*>& gameObjs)
@@ -99,7 +109,7 @@ namespace JB
 		}
 	}
 
-	void Layer::eraseGameObject()
+	void Layer::eraseDeadGameObject()
 	{
 		std::erase_if(mGameObjects,
 			[](GameObject* gameObj)

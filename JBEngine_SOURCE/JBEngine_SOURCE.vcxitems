@@ -24,6 +24,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)JBCollider.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JBCollisionManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JBComponent.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JBDontDestroyOnLoad.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JBEntity.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JBEnums.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JBGameObject.h" />
@@ -53,6 +54,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)JBCollider.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JBCollisionManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JBComponent.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JBDontDestroyOnLoad.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JBEntity.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JBGameObject.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JBInput.cpp" />

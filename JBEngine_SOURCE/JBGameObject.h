@@ -66,6 +66,9 @@ namespace JB
 		bool IsActive() { return mState == eState::Active; }
 		bool IsDead() { return mState == eState::Dead; }
 
+		void SetLayerType(eLayerType layerType) { mLayerType = layerType; }
+		eLayerType GetLayerType() { return mLayerType; }
+
 	private:
 		void initializeTransform();
 		void death() { mState = eState::Dead; }
@@ -73,6 +76,6 @@ namespace JB
 	private:
 		eState mState;
 		std::vector<Component*> mComponents;
-
+		eLayerType mLayerType;
 	};
 }

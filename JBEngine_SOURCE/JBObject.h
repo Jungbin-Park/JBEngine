@@ -12,6 +12,7 @@ namespace JB::object
 	static T* Instantiate(JB::enums::eLayerType type)
 	{
 		T* gameObject = new T();
+		gameObject->SetLayerType(type);
 		Scene* activeScene = SceneManager::GetActiveScene();
 		Layer* layer = activeScene->GetLayer(type);
 		layer->AddGameObject(gameObject);
@@ -23,6 +24,7 @@ namespace JB::object
 	static T* Instantiate(JB::enums::eLayerType type, math::Vector2 position)
 	{
 		T* gameObject = new T();
+		gameObject->SetLayerType(type);
 		Scene* activeScene = SceneManager::GetActiveScene();
 		Layer* layer = activeScene->GetLayer(type);
 		layer->AddGameObject(gameObject);
@@ -33,11 +35,14 @@ namespace JB::object
 		return gameObject;
 	}
 
-	//static void Destroy(GameObject* gameObject)
-	//{
-	//	if (gameObject == nullptr)
-	//		return;
+	static void DontDestroyOnLoad(GameObject* gameObject)
+	{
+		Scene* activeScene = SceneManager::GetActiveScene();
+		// 현재 씬에서 게임 오브젝트를 지워준다.
+		activeScene->EraseGameObject(gameObject);
 
-	//	gameObject->Death();
-	//}
+		// 해당 게임 오브젝트를 Dontdestroy씬으로 넘겨준다.
+		Scene* dontDestroyOnLoad = SceneManager::GetDontDestroyOnLoad();
+		dontDestroyOnLoad->AddGameObject(gameObject, gameObject->GetLayerType());
+	}
 }
