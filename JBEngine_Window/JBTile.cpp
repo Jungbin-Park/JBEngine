@@ -2,6 +2,7 @@
 #include "JBInput.h"
 #include "JBTransform.h"
 #include "JBTime.h"
+#include "JBTilemapRenderer.h"
 
 namespace JB
 {
@@ -20,5 +21,13 @@ namespace JB
 	void Tile::Render(HDC hdc)
 	{
 		GameObject::Render(hdc);
+	}
+	void Tile::SetPosition(int x, int y)
+	{
+		Transform* tr = GetComponent<Transform>();
+		Vector2 pos;
+		pos.x = x * TilemapRenderer::TileSize.x;
+		pos.y = y * TilemapRenderer::TileSize.y;
+		tr->SetPosition(pos);
 	}
 }
