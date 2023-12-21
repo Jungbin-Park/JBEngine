@@ -134,6 +134,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="JBCameraScript.h" />
     <ClInclude Include="JBCat.h" />
     <ClInclude Include="JBCatScript.h" />
     <ClInclude Include="JBcloudScript.h" />
@@ -148,6 +149,7 @@
     <ClInclude Include="JBToolScene.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="JBCameraScript.cpp" />
     <ClCompile Include="JBCat.cpp" />
     <ClCompile Include="JBCatScript.cpp" />
     <ClCompile Include="JBcloudScript.cpp" />

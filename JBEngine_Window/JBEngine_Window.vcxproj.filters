@@ -48,6 +48,9 @@
     <ClInclude Include="JBToolScene.h">
       <Filter>Scenes</Filter>
     </ClInclude>
+    <ClInclude Include="JBCameraScript.h">
+      <Filter>Scripts</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="JBPlayScene.cpp">
@@ -82,6 +85,9 @@
     </ClCompile>
     <ClCompile Include="JBToolScene.cpp">
       <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="JBCameraScript.cpp">
+      <Filter>Scripts</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

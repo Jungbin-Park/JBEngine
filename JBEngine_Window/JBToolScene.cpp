@@ -7,6 +7,7 @@
 #include "JBCamera.h"
 #include "JBRenderer.h"
 #include "JBInput.h"
+#include "JBCameraScript.h"
 
 namespace JB
 {
@@ -20,12 +21,13 @@ namespace JB
 	{
 		GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::None, Vector2(640.0f, 360.0f));
 		Camera* cameraComp = camera->AddComponent<Camera>();
+		camera->AddComponent<CameraScript>();
+
 		renderer::mainCamera = cameraComp;
 
-		Tile* tile = object::Instantiate<Tile>(eLayerType::Tile);
+		/*Tile* tile = object::Instantiate<Tile>(eLayerType::Tile);
 		TilemapRenderer* tmr = tile->AddComponent<TilemapRenderer>();
-
-		tmr->SetTexture(Resources::Find<graphics::Texture>(L"SpringFloor"));
+		tmr->SetTexture(Resources::Find<graphics::Texture>(L"SpringFloor"));*/
 
 		Scene::Initialize();
 	}
@@ -41,16 +43,25 @@ namespace JB
 		{
 			Vector2 pos = Input::GetMousePosition();
 
-			int idxX = pos.x / TilemapRenderer::TileSize.x;
-			int idxY = pos.y / TilemapRenderer::TileSize.y;
+			pos = renderer::mainCamera->CalculatePosition(pos);
 
-			Tile* tile = object::Instantiate<Tile>(eLayerType::Tile);
-			TilemapRenderer* tmr = tile->AddComponent<TilemapRenderer>();
-			tmr->SetTexture(Resources::Find<graphics::Texture>(L"SpringFloor"));
-			tmr->SetIndex(TilemapRenderer::SelectedIndex);
+			if (pos.x >= 0.0f && pos.y >= 0.0f)
+			{
+				int idxX = pos.x / TilemapRenderer::TileSize.x;
+				int idxY = pos.y / TilemapRenderer::TileSize.y;
 
-			tile->SetPosition(idxX, idxY);
-			mTiles.push_back(tile);
+				Tile* tile = object::Instantiate<Tile>(eLayerType::Tile);
+				TilemapRenderer* tmr = tile->AddComponent<TilemapRenderer>();
+				tmr->SetTexture(Resources::Find<graphics::Texture>(L"SpringFloor"));
+				tmr->SetIndex(TilemapRenderer::SelectedIndex);
+
+				tile->SetIndexPosition(idxX, idxY);
+				mTiles.push_back(tile);
+			}
+			else
+			{
+				//
+			}
 		}
 
 		if (Input::GetKeyDown(eKeyCode::S))
@@ -70,14 +81,24 @@ namespace JB
 
 		for (size_t i = 0; i < 50; i++)
 		{
-			MoveToEx(hdc, TilemapRenderer::TileSize.x * i, 0, NULL);
-			LineTo(hdc, TilemapRenderer::TileSize.x * i, 1000);
+			Vector2 pos = renderer::mainCamera->CalculatePosition
+			(
+				Vector2(TilemapRenderer::TileSize.x * i, 0.0f)
+			);
+
+			MoveToEx(hdc, pos.x, 0, NULL);
+			LineTo(hdc, pos.x, 1000);
 		}
 
 		for (size_t i = 0; i < 50; i++)
 		{
-			MoveToEx(hdc, 0, TilemapRenderer::TileSize.y * i, NULL);
-			LineTo(hdc, 1300, TilemapRenderer::TileSize.y * i);
+			Vector2 pos = renderer::mainCamera->CalculatePosition
+			(
+				Vector2(0.0f, TilemapRenderer::TileSize.y * i)
+			);
+
+			MoveToEx(hdc, 0, pos.y, NULL);
+			LineTo(hdc, 1000, pos.y);
 		}
 	}
 	void ToolScene::OnEnter()
@@ -177,12 +198,11 @@ namespace JB
 			if (fread(&posY, sizeof(int), 1, pFile) == NULL)
 				break;
 
-			Tile* tile = object::Instantiate<Tile>(eLayerType::Tile);
+			Tile* tile = object::Instantiate<Tile>(eLayerType::Tile, Vector2(posX, posY));
 			TilemapRenderer* tmr = tile->AddComponent<TilemapRenderer>();
 			tmr->SetTexture(Resources::Find<graphics::Texture>(L"SpringFloor"));
 			tmr->SetIndex(Vector2(idxX, idxY));
 
-			tile->SetPosition(posX, posY);
 			mTiles.push_back(tile);
 		}
 
