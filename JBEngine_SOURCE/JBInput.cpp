@@ -91,8 +91,16 @@ namespace JB
 		GetCursorPos(&mousePos);
 		ScreenToClient(application.GetHwnd(), &mousePos);
 
-		mMousePosition.x = mousePos.x;
-		mMousePosition.y = mousePos.y;
+		UINT width = application.GetWidth();
+		UINT height = application.GetHeight();
+
+		mMousePosition.x = -1.0f;
+		mMousePosition.y = -1.0f;
+
+		if (mousePos.x > 0 && mousePos.x < width)
+			mMousePosition.x = mousePos.x;
+		if (mousePos.y > 0 && mousePos.y < width)
+			mMousePosition.y = mousePos.y;
 	}
 	void Input::clearKeys()
 	{

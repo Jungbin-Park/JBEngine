@@ -9,6 +9,7 @@ namespace JB
 	public:
 		// operator ¿¬»êÀÚ·Î µ¡¼À »¬¼À ±¸Çö(JBmath.h)
 		Vector2 CalculatePosition(Vector2 pos) { return pos - mDistance; }
+		Vector2 CalculateTilePosition(Vector2 pos) { return pos + mDistance; }
 
 		Camera();
 		~Camera();
