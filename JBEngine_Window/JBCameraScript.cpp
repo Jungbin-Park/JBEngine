@@ -14,12 +14,15 @@ namespace JB
 	CameraScript::CameraScript()
 	{
 	}
+
 	CameraScript::~CameraScript()
 	{
 	}
+
 	void CameraScript::Initialize()
 	{
 	}
+
 	void CameraScript::Update()
 	{
 		Transform* tr = GetOwner()->GetComponent<Transform>();
@@ -44,9 +47,11 @@ namespace JB
 
 		tr->SetPosition(pos);
 	}
+
 	void CameraScript::LateUpdate()
 	{
 	}
+
 	void CameraScript::Render(HDC hdc)
 	{
 	}

@@ -1,4 +1,5 @@
 #include "JBScene.h"
+#include "JBCollisionManager.h"
 
 
 namespace JB
@@ -95,5 +96,6 @@ namespace JB
 
 	void Scene::OnExit()
 	{
+		CollisionManager::Clear();
 	}
 }

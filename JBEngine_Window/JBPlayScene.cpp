@@ -235,9 +235,13 @@ namespace JB
 	void PlayScene::OnEnter()
 	{
 		renderer::mainCamera = mCameraComp;
+
+		Scene::OnEnter();
+		CollisionManager::CollisionLayerCheck(eLayerType::Player, eLayerType::Animal, true);
 	}
 	void PlayScene::OnExit()
 	{
+		Scene::OnExit();
 		//Transform* tr = bg->GetComponent<Transform>();
 		//tr->SetPosition(Vector2(0, 0));
 	}

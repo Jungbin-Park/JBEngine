@@ -27,6 +27,7 @@ WCHAR szWindowClass[MAX_LOADSTRING];            // 기본 창 클래스 이름�
 // 이 코드 모듈에 포함된 함수의 선언을 전달합니다:
 ATOM                MyRegisterClass(HINSTANCE hInstance, const wchar_t* name, WNDPROC proc);
 BOOL                InitInstance(HINSTANCE, int);
+BOOL                InitiToolScene(HINSTANCE);
 LRESULT CALLBACK    WndProc(HWND, UINT, WPARAM, LPARAM);
 //LRESULT CALLBACK    WndTileProc(HWND, UINT, WPARAM, LPARAM);
 INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
@@ -157,23 +158,39 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    JB::LoadResources();
    JB::LoadScenes();
 
+   InitiToolScene(hInstance);
+
    int a = 0;
    srand((unsigned int)(&a));
 
-   // Tile 윈도우 크기 조정
-   JB::graphics::Texture* texture = JB::Resources::Find<JB::graphics::Texture>(L"SpringFloor");
-
-   RECT rect = { 0, 0, texture->GetWidth(), texture->GetHeight() };
-   AdjustWindowRect(&rect, WS_OVERLAPPEDWINDOW, false);
-
-   UINT toolWidth = rect.right - rect.left;
-   UINT toolHeight = rect.bottom - rect.top;
-
-   SetWindowPos(ToolHWnd, nullptr, width, 0, toolWidth, toolHeight, 0);
-   ShowWindow(ToolHWnd, true);
-   UpdateWindow(ToolHWnd);
-
    return TRUE;
+}
+
+BOOL InitToolScene(HINSTANCE hInstance)
+{
+    JB::Scene* activeScene = JB::SceneManager::GetActiveScene();
+    std::wstring name = activeScene->GetName();
+
+    if (name == L"ToolScene")
+    {
+        HWND ToolHWnd = CreateWindow(L"TILEWINDOW", L"TileWindow", WS_OVERLAPPEDWINDOW,
+            0, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInstance, nullptr);
+
+        // Tile 윈도우 크기 조정
+        JB::graphics::Texture* texture = JB::Resources::Find<JB::graphics::Texture>(L"SpringFloor");
+
+        RECT rect = { 0, 0, texture->GetWidth(), texture->GetHeight() };
+        AdjustWindowRect(&rect, WS_OVERLAPPEDWINDOW, false);
+
+        UINT toolWidth = rect.right - rect.left;
+        UINT toolHeight = rect.bottom - rect.top;
+
+        SetWindowPos(ToolHWnd, nullptr, 640, 0, toolWidth, toolHeight, 0);
+        ShowWindow(ToolHWnd, true);
+        UpdateWindow(ToolHWnd);
+    }
+
+    return TRUE;
 }
 
 //

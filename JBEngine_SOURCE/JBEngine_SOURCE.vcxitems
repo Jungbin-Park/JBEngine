@@ -35,6 +35,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)JBRenderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JBResource.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JBResources.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JBRigidbody.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JBScene.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JBSceneManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JBScript.h" />
@@ -65,6 +66,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)JBRenderer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JBResource.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JBResources.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JBRigidbody.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JBScene.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JBSceneManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JBScript.cpp" />
