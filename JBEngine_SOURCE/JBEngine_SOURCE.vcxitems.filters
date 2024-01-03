@@ -83,6 +83,18 @@
       <Filter>Component\Collider</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)JBRigidbody.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JBUIManager.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)JBUIBase.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)JBUIButton.cpp">
+      <Filter>UI\Button</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)JBUIHUD.cpp">
+      <Filter>UI\HUD</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)JBComponent.h">
@@ -176,6 +188,18 @@
       <Filter>Component\Collider</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)JBRigidbody.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JBUIManager.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)JBUIBase.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)JBUIButton.h">
+      <Filter>UI\Button</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)JBUIHUD.h">
+      <Filter>UI\HUD</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Component">
@@ -225,6 +249,15 @@
     </Filter>
     <Filter Include="Component\TileMapRenderer">
       <UniqueIdentifier>{f47a8402-ac11-41ba-a705-9e5ffa123a42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI">
+      <UniqueIdentifier>{6281ac67-f4cf-4c64-860d-4f25e0b81d75}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\Button">
+      <UniqueIdentifier>{0b01afcb-8bfc-475d-b30c-2863fbd17c7f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\HUD">
+      <UniqueIdentifier>{9dafd6cb-8d7b-4aa3-9879-74d8849561df}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

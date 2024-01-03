@@ -44,6 +44,10 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)JBTilemapRenderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JBTime.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)JBTransform.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JBUIBase.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JBUIButton.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JBUIHUD.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)JBUIManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)LoadResources.h" />
   </ItemGroup>
   <ItemGroup>
@@ -75,5 +79,9 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)JBTilemapRenderer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JBTime.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)JBTransform.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JBUIBase.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JBUIButton.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JBUIHUD.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)JBUIManager.cpp" />
   </ItemGroup>
 </Project>
