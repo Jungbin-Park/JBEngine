@@ -27,7 +27,7 @@ WCHAR szWindowClass[MAX_LOADSTRING];            // 기본 창 클래스 이름�
 // 이 코드 모듈에 포함된 함수의 선언을 전달합니다:
 ATOM                MyRegisterClass(HINSTANCE hInstance, const wchar_t* name, WNDPROC proc);
 BOOL                InitInstance(HINSTANCE, int);
-BOOL                InitiToolScene(HINSTANCE);
+BOOL                InitToolScene(HINSTANCE);
 LRESULT CALLBACK    WndProc(HWND, UINT, WPARAM, LPARAM);
 //LRESULT CALLBACK    WndTileProc(HWND, UINT, WPARAM, LPARAM);
 INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
@@ -158,7 +158,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    JB::LoadResources();
    JB::LoadScenes();
 
-   InitiToolScene(hInstance);
+   InitToolScene(hInstance);
 
    int a = 0;
    srand((unsigned int)(&a));

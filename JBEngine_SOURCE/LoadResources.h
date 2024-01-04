@@ -21,6 +21,7 @@ namespace JB
 		Resources::Load<graphics::Texture>(L"PlayerPick", L"C:\\C++\\JBEngine\\Resources\\PlayerPick.bmp");
 		Resources::Load<graphics::Texture>(L"PlayerDownWalk", L"C:\\C++\\JBEngine\\Resources\\PlayerDownWalk.bmp");
 		Resources::Load<graphics::Texture>(L"Cat", L"C:\\C++\\JBEngine\\Resources\\CatAlpha.bmp");
+		Resources::Load<graphics::Texture>(L"HPBAR", L"C:\\C++\\JBEngine\\Resources\\hpbar.bmp");
 
 		// FarmhouseScene
 		Resources::Load<graphics::Texture>(L"Farmhouse", L"C:\\C++\\JBEngine\\Resources\\Farmhouse.png");

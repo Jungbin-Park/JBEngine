@@ -1,6 +1,7 @@
 #include "JBPlayScene.h"
 #include "JBGameObject.h"
 #include "JBPlayer.h"
+#include "JBUIManager.h"
 #include "JBTransform.h"
 #include "JBSpriteRenderer.h"
 #include "JBInput.h"
@@ -238,9 +239,13 @@ namespace JB
 
 		Scene::OnEnter();
 		CollisionManager::CollisionLayerCheck(eLayerType::Player, eLayerType::Animal, true);
+
+		UIManager::Push(eUIType::Button);
 	}
 	void PlayScene::OnExit()
 	{
+		UIManager::Pop(eUIType::Button);
+
 		Scene::OnExit();
 		//Transform* tr = bg->GetComponent<Transform>();
 		//tr->SetPosition(Vector2(0, 0));

@@ -17,6 +17,7 @@ namespace JB
 		SceneManager::CreateScene<ToolScene>(L"ToolScene");
 		//SceneManager::CreateScene<EndScene>(L"EndScene");
 
+		
 		//SceneManager::LoadScene(L"TitleScene");
 		SceneManager::LoadScene(L"ToolScene");
 		//SceneManager::LoadScene(L"PlayScene");

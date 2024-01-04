@@ -4,6 +4,7 @@
 #include "JBTime.h"
 #include "JBGameObject.h"
 #include "JBAnimator.h"
+#include "JBUIManager.h"
 
 namespace JB
 {
@@ -261,6 +262,19 @@ namespace JB
 			}
 			
 			//Vector2 mousePos = Input::GetMousePosition();
+		}
+
+		if (Input::GetKeyDown(eKeyCode::I))
+		{
+			UIManager::Push(eUIType::HpBar);
+			//UIManager::Push(eUIType::Button);
+
+		}
+
+		if (Input::GetKeyDown(eKeyCode::O))
+		{
+			UIManager::Pop(eUIType::HpBar);
+
 		}
 	}
 	void PlayerScript::move()

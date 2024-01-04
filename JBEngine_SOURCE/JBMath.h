@@ -53,7 +53,7 @@ namespace JB::math
 
 		}
 
-		VEctor2 operator-()
+		Vector2 operator-()
 		{
 			return Vector2(-x, -y);
 		}
